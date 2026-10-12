@@ -1,0 +1,268 @@
+{
+  "seed": 42,
+  "nights": [
+    "2026-09-28",
+    "2026-10-11"
+  ],
+  "total_clients": 60,
+  "total_jobs": 838,
+  "anomaly_count": 13,
+  "anomalies": [
+    {
+      "id": "A01",
+      "type": "media_agent_outage",
+      "clients": [
+        "hana-usc-001",
+        "lnx-usc-001",
+        "lnx-usc-002",
+        "vmw-usc-001",
+        "vmw-usc-002",
+        "vmw-usc-004",
+        "vmw-usc-006",
+        "win-usc-001",
+        "win-usc-004",
+        "win-usc-008"
+      ],
+      "nights": [
+        "2026-10-10"
+      ],
+      "job_ids": [
+        4810730,
+        4810733,
+        4810736,
+        4810741,
+        4810754,
+        4810760,
+        4810766,
+        4810771,
+        4810776,
+        4810779
+      ],
+      "description": "Media agent MA-USC-01 offline; all 10 jobs on it failed the same night. Should be reported as ONE root cause, not 10 failures.",
+      "media_agent": "MA-USC-01",
+      "site": "US-CENTRAL"
+    },
+    {
+      "id": "A02",
+      "type": "repeat_failure",
+      "clients": [
+        "win-ukl-002"
+      ],
+      "nights": [
+        "2026-10-09",
+        "2026-10-10",
+        "2026-10-11"
+      ],
+      "job_ids": [
+        4810707,
+        4810767,
+        4810827
+      ],
+      "description": "Failed 3 nights in a row with SIM-1003; an ongoing issue, not a blip.",
+      "error_code": "SIM-1003"
+    },
+    {
+      "id": "A03",
+      "type": "repeat_failure",
+      "clients": [
+        "sql-use-005"
+      ],
+      "nights": [
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-10"
+      ],
+      "job_ids": [
+        4810582,
+        4810642,
+        4810702,
+        4810763
+      ],
+      "description": "Failed 4 nights in a row with SIM-1004; an ongoing issue, not a blip.",
+      "error_code": "SIM-1004"
+    },
+    {
+      "id": "A04",
+      "type": "duration_spike",
+      "clients": [
+        "win-use-003"
+      ],
+      "nights": [
+        "2026-10-07"
+      ],
+      "job_ids": [
+        4810559
+      ],
+      "description": "Completed, but ran ~5.4x longer than this client's normal incremental duration."
+    },
+    {
+      "id": "A05",
+      "type": "duration_spike",
+      "clients": [
+        "vmw-ukl-001"
+      ],
+      "nights": [
+        "2026-10-04"
+      ],
+      "job_ids": [
+        4810414
+      ],
+      "description": "Completed, but ran ~5.0x longer than this client's normal incremental duration."
+    },
+    {
+      "id": "A06",
+      "type": "duration_spike",
+      "clients": [
+        "win-use-002"
+      ],
+      "nights": [
+        "2026-10-06"
+      ],
+      "job_ids": [
+        4810518
+      ],
+      "description": "Completed, but ran ~5.2x longer than this client's normal incremental duration."
+    },
+    {
+      "id": "A07",
+      "type": "size_drop",
+      "clients": [
+        "vmw-use-001"
+      ],
+      "nights": [
+        "2026-10-03"
+      ],
+      "job_ids": [
+        4810308
+      ],
+      "description": "Status Completed, but backed up only ~14% of normal incremental size. Silent failure; status filters miss it."
+    },
+    {
+      "id": "A08",
+      "type": "size_drop",
+      "clients": [
+        "vmw-ukl-007"
+      ],
+      "nights": [
+        "2026-10-05"
+      ],
+      "job_ids": [
+        4810456
+      ],
+      "description": "Status Completed, but backed up only ~12% of normal incremental size. Silent failure; status filters miss it."
+    },
+    {
+      "id": "A09",
+      "type": "size_drop",
+      "clients": [
+        "hana-ukl-004"
+      ],
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [
+        4810804
+      ],
+      "description": "Status Completed, but backed up only ~6% of normal incremental size. Silent failure; status filters miss it."
+    },
+    {
+      "id": "A10",
+      "type": "size_spike",
+      "clients": [
+        "vmw-ukl-003"
+      ],
+      "nights": [
+        "2026-10-09"
+      ],
+      "job_ids": [
+        4810676
+      ],
+      "description": "Incremental ~5.0x normal size. Abnormal change rate; possible ransomware encryption or mass data change."
+    },
+    {
+      "id": "A11",
+      "type": "size_spike",
+      "clients": [
+        "vmw-use-004"
+      ],
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [
+        4810808
+      ],
+      "description": "Incremental ~7.4x normal size. Abnormal change rate; possible ransomware encryption or mass data change."
+    },
+    {
+      "id": "A12",
+      "type": "missed_backup",
+      "clients": [
+        "ora-ukl-001"
+      ],
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [],
+      "description": "No job ran for this client on this night. Failure-only reports never show this."
+    },
+    {
+      "id": "A13",
+      "type": "missed_backup",
+      "clients": [
+        "hana-use-003"
+      ],
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [],
+      "description": "No job ran for this client on this night. Failure-only reports never show this."
+    }
+  ],
+  "background_noise_not_anomalies": {
+    "note": "One-off events a good detector should NOT escalate as anomalies.",
+    "one_off_failure_job_ids": [
+      4810027,
+      4810028,
+      4810041,
+      4810111,
+      4810115,
+      4810128,
+      4810134,
+      4810141,
+      4810149,
+      4810163,
+      4810188,
+      4810214,
+      4810329,
+      4810394,
+      4810395,
+      4810443,
+      4810463,
+      4810775,
+      4810823
+    ],
+    "completed_with_errors_job_ids": [
+      4810082,
+      4810113,
+      4810218,
+      4810228,
+      4810271,
+      4810346,
+      4810353,
+      4810389,
+      4810393,
+      4810399,
+      4810419,
+      4810485,
+      4810584,
+      4810605,
+      4810639,
+      4810644,
+      4810688,
+      4810689,
+      4810732,
+      4810801
+    ]
+  }
+}
