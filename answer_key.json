@@ -58,8 +58,8 @@
         4810767,
         4810827
       ],
-      "description": "Failed 3 nights in a row with SIM-1003; an ongoing issue, not a blip.",
-      "error_code": "SIM-1003"
+      "description": "Failed 3 nights in a row with Error Code: 103; an ongoing issue, not a blip.",
+      "error_code": "Error Code: 103"
     },
     {
       "id": "A03",
@@ -79,8 +79,8 @@
         4810702,
         4810763
       ],
-      "description": "Failed 4 nights in a row with SIM-1004; an ongoing issue, not a blip.",
-      "error_code": "SIM-1004"
+      "description": "Failed 4 nights in a row with Error Code: 104; an ongoing issue, not a blip.",
+      "error_code": "Error Code: 104"
     },
     {
       "id": "A04",

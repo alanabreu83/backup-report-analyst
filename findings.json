@@ -35,10 +35,10 @@
         "consecutive_failed_nights": 3,
         "still_failing_on_last_night": true,
         "error_codes": {
-          "SIM-1003": 3
+          "Error Code: 103": 3
         }
       },
-      "summary": "win-ukl-002 failed 3 nights in a row (2026-10-09 to 2026-10-11) with SIM-1003; still failing as of the last night."
+      "summary": "win-ukl-002 failed 3 nights in a row (2026-10-09 to 2026-10-11) with Error Code: 103; still failing as of the last night."
     },
     {
       "id": "F02",
@@ -78,10 +78,10 @@
         "total_jobs_on_media_agent": 10,
         "fail_ratio": 1.0,
         "error_codes": {
-          "SIM-1002": 10
+          "Error Code: 102": 10
         }
       },
-      "summary": "10 of 10 jobs on MA-USC-01 failed on 2026-10-10; most common error SIM-1002. Likely one shared root cause on the media agent."
+      "summary": "10 of 10 jobs on MA-USC-01 failed on 2026-10-10; most common error Error Code: 102. Likely one shared root cause on the media agent."
     },
     {
       "id": "F03",
@@ -164,10 +164,10 @@
         "consecutive_failed_nights": 4,
         "still_failing_on_last_night": false,
         "error_codes": {
-          "SIM-1004": 4
+          "Error Code: 104": 4
         }
       },
-      "summary": "sql-use-005 failed 4 nights in a row (2026-10-07 to 2026-10-10) with SIM-1004."
+      "summary": "sql-use-005 failed 4 nights in a row (2026-10-07 to 2026-10-10) with Error Code: 104."
     },
     {
       "id": "F06",
@@ -384,7 +384,7 @@
       "client": "hana-use-003",
       "night": "2026-09-28",
       "status": "Failed",
-      "error_code": "SIM-1001",
+      "error_code": "Error Code: 101",
       "error_description": "Unable to connect to client; communication services not responding"
     },
     {
@@ -392,7 +392,7 @@
       "client": "vmw-usc-003",
       "night": "2026-09-28",
       "status": "Failed",
-      "error_code": "SIM-1006",
+      "error_code": "Error Code: 106",
       "error_description": "VMware snapshot quiesce timeout"
     },
     {
@@ -400,7 +400,7 @@
       "client": "vmw-use-005",
       "night": "2026-09-28",
       "status": "Failed",
-      "error_code": "SIM-1006",
+      "error_code": "Error Code: 106",
       "error_description": "VMware snapshot quiesce timeout"
     },
     {
@@ -408,7 +408,7 @@
       "client": "lnx-usc-003",
       "night": "2026-09-29",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2003",
+      "error_code": "Error Code: 110",
       "error_description": "Some items could not be read from source"
     },
     {
@@ -416,7 +416,7 @@
       "client": "win-ukl-003",
       "night": "2026-09-29",
       "status": "Failed",
-      "error_code": "SIM-1003",
+      "error_code": "Error Code: 103",
       "error_description": "VSS snapshot creation failed on client"
     },
     {
@@ -424,7 +424,7 @@
       "client": "win-usc-003",
       "night": "2026-09-29",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2003",
+      "error_code": "Error Code: 110",
       "error_description": "Some items could not be read from source"
     },
     {
@@ -432,7 +432,7 @@
       "client": "win-usc-006",
       "night": "2026-09-29",
       "status": "Failed",
-      "error_code": "SIM-1005",
+      "error_code": "Error Code: 105",
       "error_description": "Insufficient space in disk library mount path"
     },
     {
@@ -440,7 +440,7 @@
       "client": "ora-ukl-002",
       "night": "2026-09-30",
       "status": "Failed",
-      "error_code": "SIM-1007",
+      "error_code": "Error Code: 107",
       "error_description": "Authentication to database instance failed"
     },
     {
@@ -448,7 +448,7 @@
       "client": "sql-use-001",
       "night": "2026-09-30",
       "status": "Failed",
-      "error_code": "SIM-1001",
+      "error_code": "Error Code: 101",
       "error_description": "Unable to connect to client; communication services not responding"
     },
     {
@@ -456,7 +456,7 @@
       "client": "sql-use-002",
       "night": "2026-09-30",
       "status": "Failed",
-      "error_code": "SIM-1007",
+      "error_code": "Error Code: 107",
       "error_description": "Authentication to database instance failed"
     },
     {
@@ -464,7 +464,7 @@
       "client": "vmw-ukl-002",
       "night": "2026-09-30",
       "status": "Failed",
-      "error_code": "SIM-1005",
+      "error_code": "Error Code: 105",
       "error_description": "Insufficient space in disk library mount path"
     },
     {
@@ -472,7 +472,7 @@
       "client": "win-usc-009",
       "night": "2026-09-30",
       "status": "Failed",
-      "error_code": "SIM-1003",
+      "error_code": "Error Code: 103",
       "error_description": "VSS snapshot creation failed on client"
     },
     {
@@ -480,7 +480,7 @@
       "client": "lnx-usc-002",
       "night": "2026-10-01",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2001",
+      "error_code": "Error Code: 108",
       "error_description": "One or more files skipped: access denied"
     },
     {
@@ -488,7 +488,7 @@
       "client": "vmw-use-001",
       "night": "2026-10-01",
       "status": "Failed",
-      "error_code": "SIM-1006",
+      "error_code": "Error Code: 106",
       "error_description": "VMware snapshot quiesce timeout"
     },
     {
@@ -496,7 +496,7 @@
       "client": "win-ukl-002",
       "night": "2026-10-01",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -504,7 +504,7 @@
       "client": "win-usc-007",
       "night": "2026-10-01",
       "status": "Failed",
-      "error_code": "SIM-1001",
+      "error_code": "Error Code: 101",
       "error_description": "Unable to connect to client; communication services not responding"
     },
     {
@@ -512,7 +512,7 @@
       "client": "win-usc-007",
       "night": "2026-10-02",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -520,7 +520,7 @@
       "client": "hana-usc-001",
       "night": "2026-10-03",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2001",
+      "error_code": "Error Code: 108",
       "error_description": "One or more files skipped: access denied"
     },
     {
@@ -528,7 +528,7 @@
       "client": "ora-ukl-001",
       "night": "2026-10-03",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2003",
+      "error_code": "Error Code: 110",
       "error_description": "Some items could not be read from source"
     },
     {
@@ -536,7 +536,7 @@
       "client": "vmw-use-004",
       "night": "2026-10-03",
       "status": "Failed",
-      "error_code": "SIM-1006",
+      "error_code": "Error Code: 106",
       "error_description": "VMware snapshot quiesce timeout"
     },
     {
@@ -544,7 +544,7 @@
       "client": "sql-use-002",
       "night": "2026-10-04",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -552,7 +552,7 @@
       "client": "vmw-ukl-004",
       "night": "2026-10-04",
       "status": "Failed",
-      "error_code": "SIM-1006",
+      "error_code": "Error Code: 106",
       "error_description": "VMware snapshot quiesce timeout"
     },
     {
@@ -560,7 +560,7 @@
       "client": "vmw-ukl-007",
       "night": "2026-10-04",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -568,7 +568,7 @@
       "client": "win-usc-004",
       "night": "2026-10-04",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -576,7 +576,7 @@
       "client": "win-usc-007",
       "night": "2026-10-04",
       "status": "Failed",
-      "error_code": "SIM-1003",
+      "error_code": "Error Code: 103",
       "error_description": "VSS snapshot creation failed on client"
     },
     {
@@ -584,7 +584,7 @@
       "client": "win-use-002",
       "night": "2026-10-04",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -592,7 +592,7 @@
       "client": "sql-use-005",
       "night": "2026-10-05",
       "status": "Failed",
-      "error_code": "SIM-1001",
+      "error_code": "Error Code: 101",
       "error_description": "Unable to connect to client; communication services not responding"
     },
     {
@@ -600,7 +600,7 @@
       "client": "win-usc-003",
       "night": "2026-10-05",
       "status": "Failed",
-      "error_code": "SIM-1001",
+      "error_code": "Error Code: 101",
       "error_description": "Unable to connect to client; communication services not responding"
     },
     {
@@ -608,7 +608,7 @@
       "client": "vmw-use-001",
       "night": "2026-10-06",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2001",
+      "error_code": "Error Code: 108",
       "error_description": "One or more files skipped: access denied"
     },
     {
@@ -616,7 +616,7 @@
       "client": "win-usc-005",
       "night": "2026-10-07",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2003",
+      "error_code": "Error Code: 110",
       "error_description": "Some items could not be read from source"
     },
     {
@@ -624,7 +624,7 @@
       "client": "hana-use-001",
       "night": "2026-10-08",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2001",
+      "error_code": "Error Code: 108",
       "error_description": "One or more files skipped: access denied"
     },
     {
@@ -632,7 +632,7 @@
       "client": "ora-ukl-004",
       "night": "2026-10-08",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -640,7 +640,7 @@
       "client": "vmw-use-008",
       "night": "2026-10-08",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2001",
+      "error_code": "Error Code: 108",
       "error_description": "One or more files skipped: access denied"
     },
     {
@@ -648,7 +648,7 @@
       "client": "sql-use-002",
       "night": "2026-10-09",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2003",
+      "error_code": "Error Code: 110",
       "error_description": "Some items could not be read from source"
     },
     {
@@ -656,7 +656,7 @@
       "client": "vmw-use-004",
       "night": "2026-10-09",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2003",
+      "error_code": "Error Code: 110",
       "error_description": "Some items could not be read from source"
     },
     {
@@ -664,7 +664,7 @@
       "client": "vmw-ukl-005",
       "night": "2026-10-10",
       "status": "Failed",
-      "error_code": "SIM-1006",
+      "error_code": "Error Code: 106",
       "error_description": "VMware snapshot quiesce timeout"
     },
     {
@@ -672,7 +672,7 @@
       "client": "vmw-use-003",
       "night": "2026-10-10",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2001",
+      "error_code": "Error Code: 108",
       "error_description": "One or more files skipped: access denied"
     },
     {
@@ -680,7 +680,7 @@
       "client": "sql-use-001",
       "night": "2026-10-11",
       "status": "Completed w/ errors",
-      "error_code": "SIM-2002",
+      "error_code": "Error Code: 109",
       "error_description": "One or more files skipped: file in use"
     },
     {
@@ -688,7 +688,7 @@
       "client": "vmw-use-008",
       "night": "2026-10-11",
       "status": "Failed",
-      "error_code": "SIM-1001",
+      "error_code": "Error Code: 101",
       "error_description": "Unable to connect to client; communication services not responding"
     }
   ],

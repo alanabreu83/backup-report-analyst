@@ -26,8 +26,8 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810024,hana-ukl-004,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-09-28 21:35,2026-09-28 21:58,24,136.7,Completed,,
 4810025,vmw-use-004,VMware,US-EAST,MA-USE-02,Incremental,2026-09-28 21:36,2026-09-28 21:46,11,28.0,Completed,,
 4810026,sql-use-006,SQL Server,US-EAST,MA-USE-02,Incremental,2026-09-28 21:38,2026-09-28 21:51,13,64.3,Completed,,
-4810027,vmw-usc-003,VMware,US-CENTRAL,MA-USC-02,Incremental,2026-09-28 21:42,2026-09-28 21:44,2,9.7,Failed,SIM-1006,VMware snapshot quiesce timeout
-4810028,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Incremental,2026-09-28 21:45,2026-09-28 21:47,2,12.2,Failed,SIM-1001,Unable to connect to client; communication services not responding
+4810027,vmw-usc-003,VMware,US-CENTRAL,MA-USC-02,Incremental,2026-09-28 21:42,2026-09-28 21:44,2,9.7,Failed,Error Code: 106,VMware snapshot quiesce timeout
+4810028,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Incremental,2026-09-28 21:45,2026-09-28 21:47,2,12.2,Failed,Error Code: 101,Unable to connect to client; communication services not responding
 4810029,vmw-use-007,VMware,US-EAST,MA-USE-02,Incremental,2026-09-28 21:50,2026-09-28 21:55,5,11.2,Completed,,
 4810030,sql-use-002,SQL Server,US-EAST,MA-USE-02,Incremental,2026-09-28 21:53,2026-09-28 21:58,6,23.2,Completed,,
 4810031,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-09-28 22:06,2026-09-28 22:12,6,13.3,Completed,,
@@ -40,7 +40,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810038,hana-use-001,SAP HANA,US-EAST,MA-USE-02,Incremental,2026-09-28 22:26,2026-09-28 22:50,24,153.5,Completed,,
 4810039,vmw-use-006,VMware,US-EAST,MA-USE-01,Incremental,2026-09-28 22:27,2026-09-28 22:36,10,58.7,Completed,,
 4810040,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-09-28 22:31,2026-09-28 22:39,8,9.3,Completed,,
-4810041,vmw-use-005,VMware,US-EAST,MA-USE-01,Full,2026-09-28 22:45,2026-09-28 22:59,14,18.4,Failed,SIM-1006,VMware snapshot quiesce timeout
+4810041,vmw-use-005,VMware,US-EAST,MA-USE-01,Full,2026-09-28 22:45,2026-09-28 22:59,14,18.4,Failed,Error Code: 106,VMware snapshot quiesce timeout
 4810042,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-09-28 23:16,2026-09-28 23:28,12,18.9,Completed,,
 4810043,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-28 23:21,2026-09-28 23:31,10,8.6,Completed,,
 4810044,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-28 23:51,2026-09-28 23:55,5,4.3,Completed,,
@@ -81,7 +81,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810079,win-ukl-001,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-09-29 20:56,2026-09-29 21:05,10,3.3,Completed,,
 4810080,hana-ukl-002,SAP HANA,UK-LONDON,MA-UKL-01,Incremental,2026-09-29 21:18,2026-09-29 21:53,36,153.8,Completed,,
 4810081,hana-ukl-004,SAP HANA,UK-LONDON,MA-UKL-02,Full,2026-09-29 21:23,2026-09-30 01:15,233,2416.0,Completed,,
-4810082,win-usc-003,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-29 21:26,2026-09-29 21:35,10,5.5,Completed w/ errors,SIM-2003,Some items could not be read from source
+4810082,win-usc-003,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-29 21:26,2026-09-29 21:35,10,5.5,Completed w/ errors,Error Code: 110,Some items could not be read from source
 4810083,win-usc-008,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-09-29 21:26,2026-09-29 21:31,6,3.9,Completed,,
 4810084,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Incremental,2026-09-29 21:27,2026-09-29 22:06,39,168.9,Completed,,
 4810085,vmw-usc-003,VMware,US-CENTRAL,MA-USC-02,Full,2026-09-29 21:27,2026-09-29 23:43,136,1140.6,Completed,,
@@ -110,11 +110,11 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810108,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 00:11,2026-09-30 00:19,8,0.7,Completed,,
 4810109,vmw-usc-006,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-09-30 00:20,2026-09-30 00:33,14,58.0,Completed,,
 4810110,ora-ukl-001,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 00:36,2026-09-30 00:54,18,44.7,Completed,,
-4810111,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-09-30 00:37,2026-09-30 00:38,2,0.3,Failed,SIM-1003,VSS snapshot creation failed on client
+4810111,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-09-30 00:37,2026-09-30 00:38,2,0.3,Failed,Error Code: 103,VSS snapshot creation failed on client
 4810112,vmw-ukl-001,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-09-30 00:43,2026-09-30 00:52,9,26.8,Completed,,
-4810113,lnx-usc-003,Linux File System,US-CENTRAL,MA-USC-02,Full,2026-09-30 00:45,2026-09-30 02:38,113,274.8,Completed w/ errors,SIM-2003,Some items could not be read from source
+4810113,lnx-usc-003,Linux File System,US-CENTRAL,MA-USC-02,Full,2026-09-30 00:45,2026-09-30 02:38,113,274.8,Completed w/ errors,Error Code: 110,Some items could not be read from source
 4810114,hana-use-002,SAP HANA,US-EAST,MA-USE-02,Incremental,2026-09-30 00:49,2026-09-30 01:25,36,179.1,Completed,,
-4810115,win-usc-006,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 00:51,2026-09-30 00:54,3,1.5,Failed,SIM-1005,Insufficient space in disk library mount path
+4810115,win-usc-006,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 00:51,2026-09-30 00:54,3,1.5,Failed,Error Code: 105,Insufficient space in disk library mount path
 4810116,vmw-usc-002,VMware,US-CENTRAL,MA-USC-01,Full,2026-09-30 00:59,2026-09-30 02:05,66,508.3,Completed,,
 4810117,vmw-ukl-005,VMware,UK-LONDON,MA-UKL-02,Full,2026-09-30 01:04,2026-09-30 02:25,81,503.8,Completed,,
 4810118,vmw-use-002,VMware,US-EAST,MA-USE-02,Incremental,2026-09-30 01:07,2026-09-30 01:23,17,69.4,Completed,,
@@ -127,20 +127,20 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810125,ora-ukl-004,Oracle,UK-LONDON,MA-UKL-01,Incremental,2026-09-30 20:20,2026-09-30 20:42,23,78.1,Completed,,
 4810126,vmw-use-001,VMware,US-EAST,MA-USE-01,Incremental,2026-09-30 20:23,2026-09-30 20:31,9,14.8,Completed,,
 4810127,sql-usc-001,SQL Server,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 20:25,2026-09-30 20:36,11,22.5,Completed,,
-4810128,vmw-ukl-002,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 20:31,2026-09-30 20:33,2,0.8,Failed,SIM-1005,Insufficient space in disk library mount path
+4810128,vmw-ukl-002,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 20:31,2026-09-30 20:33,2,0.8,Failed,Error Code: 105,Insufficient space in disk library mount path
 4810129,vmw-usc-001,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-09-30 20:31,2026-09-30 20:48,17,52.3,Completed,,
 4810130,lnx-usc-001,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-09-30 20:33,2026-09-30 20:38,6,9.8,Completed,,
 4810131,vmw-use-003,VMware,US-EAST,MA-USE-01,Incremental,2026-09-30 20:37,2026-09-30 20:47,10,28.1,Completed,,
 4810132,lnx-ukl-001,Linux File System,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 20:41,2026-09-30 20:52,11,3.9,Completed,,
 4810133,win-ukl-001,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-09-30 20:43,2026-09-30 20:53,11,3.6,Completed,,
-4810134,ora-ukl-002,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 20:46,2026-09-30 20:47,1,0.8,Failed,SIM-1007,Authentication to database instance failed
+4810134,ora-ukl-002,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 20:46,2026-09-30 20:47,1,0.8,Failed,Error Code: 107,Authentication to database instance failed
 4810135,win-usc-001,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-09-30 20:46,2026-09-30 20:55,9,11.0,Completed,,
 4810136,win-use-001,Windows File System,US-EAST,MA-USE-01,Incremental,2026-09-30 20:50,2026-09-30 20:58,8,1.3,Completed,,
 4810137,win-usc-002,Windows File System,US-CENTRAL,MA-USC-02,Full,2026-09-30 20:51,2026-09-30 22:38,108,230.4,Completed,,
 4810138,vmw-ukl-003,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-09-30 20:57,2026-09-30 21:02,5,13.4,Completed,,
 4810139,win-use-003,Windows File System,US-EAST,MA-USE-02,Incremental,2026-09-30 20:58,2026-09-30 21:09,11,8.3,Completed,,
 4810140,win-usc-008,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-09-30 21:07,2026-09-30 21:17,11,4.1,Completed,,
-4810141,sql-use-001,SQL Server,US-EAST,MA-USE-02,Incremental,2026-09-30 21:19,2026-09-30 21:20,1,0.3,Failed,SIM-1001,Unable to connect to client; communication services not responding
+4810141,sql-use-001,SQL Server,US-EAST,MA-USE-02,Incremental,2026-09-30 21:19,2026-09-30 21:20,1,0.3,Failed,Error Code: 101,Unable to connect to client; communication services not responding
 4810142,win-usc-003,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 21:20,2026-09-30 21:29,9,5.1,Completed,,
 4810143,hana-ukl-004,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-09-30 21:25,2026-09-30 21:51,27,189.2,Completed,,
 4810144,vmw-usc-003,VMware,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 21:27,2026-09-30 21:38,12,36.0,Completed,,
@@ -148,7 +148,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810146,sql-use-006,SQL Server,US-EAST,MA-USE-02,Full,2026-09-30 21:41,2026-09-30 23:25,105,737.5,Completed,,
 4810147,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Incremental,2026-09-30 21:45,2026-09-30 22:12,28,127.2,Completed,,
 4810148,vmw-use-004,VMware,US-EAST,MA-USE-02,Incremental,2026-09-30 21:49,2026-09-30 21:58,10,30.5,Completed,,
-4810149,sql-use-002,SQL Server,US-EAST,MA-USE-02,Full,2026-09-30 21:51,2026-09-30 21:59,9,44.3,Failed,SIM-1007,Authentication to database instance failed
+4810149,sql-use-002,SQL Server,US-EAST,MA-USE-02,Full,2026-09-30 21:51,2026-09-30 21:59,9,44.3,Failed,Error Code: 107,Authentication to database instance failed
 4810150,vmw-use-007,VMware,US-EAST,MA-USE-02,Incremental,2026-09-30 21:54,2026-09-30 22:00,7,13.2,Completed,,
 4810151,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-09-30 21:56,2026-09-30 22:04,9,11.1,Completed,,
 4810152,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 21:59,2026-09-30 22:08,10,2.2,Completed,,
@@ -162,7 +162,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810160,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-09-30 22:49,2026-09-30 23:01,12,8.9,Completed,,
 4810161,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-09-30 22:54,2026-09-30 23:01,8,9.6,Completed,,
 4810162,sql-use-005,SQL Server,US-EAST,MA-USE-02,Full,2026-09-30 23:22,2026-10-01 00:03,42,281.1,Completed,,
-4810163,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 23:23,2026-09-30 23:24,2,1.9,Failed,SIM-1003,VSS snapshot creation failed on client
+4810163,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-09-30 23:23,2026-09-30 23:24,2,1.9,Failed,Error Code: 103,VSS snapshot creation failed on client
 4810164,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-09-30 23:54,2026-10-01 00:05,11,44.8,Completed,,
 4810165,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-01 00:01,2026-10-01 00:11,10,4.5,Completed,,
 4810166,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-01 00:13,2026-10-01 00:34,22,134.6,Completed,,
@@ -187,7 +187,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810185,ora-ukl-004,Oracle,UK-LONDON,MA-UKL-01,Incremental,2026-10-01 20:17,2026-10-01 20:38,21,66.4,Completed,,
 4810186,vmw-ukl-002,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-10-01 20:18,2026-10-01 20:27,9,10.2,Completed,,
 4810187,hana-ukl-003,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-10-01 20:23,2026-10-01 20:56,34,160.3,Completed,,
-4810188,vmw-use-001,VMware,US-EAST,MA-USE-01,Incremental,2026-10-01 20:26,2026-10-01 20:27,1,0.5,Failed,SIM-1006,VMware snapshot quiesce timeout
+4810188,vmw-use-001,VMware,US-EAST,MA-USE-01,Incremental,2026-10-01 20:26,2026-10-01 20:27,1,0.5,Failed,Error Code: 106,VMware snapshot quiesce timeout
 4810189,lnx-usc-001,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-01 20:34,2026-10-01 20:44,10,7.2,Completed,,
 4810190,lnx-ukl-001,Linux File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-01 20:36,2026-10-01 20:43,7,3.2,Completed,,
 4810191,ora-ukl-002,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-10-01 20:38,2026-10-01 20:57,19,45.2,Completed,,
@@ -213,11 +213,11 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810211,vmw-ukl-006,VMware,UK-LONDON,MA-UKL-01,Full,2026-10-01 22:08,2026-10-02 00:55,168,741.3,Completed,,
 4810212,vmw-ukl-004,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-01 22:11,2026-10-01 22:24,14,44.0,Completed,,
 4810213,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-01 22:12,2026-10-01 22:17,5,9.2,Completed,,
-4810214,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Full,2026-10-01 22:17,2026-10-01 22:27,10,17.0,Failed,SIM-1001,Unable to connect to client; communication services not responding
+4810214,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Full,2026-10-01 22:17,2026-10-01 22:27,10,17.0,Failed,Error Code: 101,Unable to connect to client; communication services not responding
 4810215,sql-ukl-001,SQL Server,UK-LONDON,MA-UKL-01,Incremental,2026-10-01 22:20,2026-10-01 22:32,12,17.4,Completed,,
 4810216,vmw-ukl-007,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-01 22:25,2026-10-01 22:42,17,70.1,Completed,,
 4810217,vmw-use-006,VMware,US-EAST,MA-USE-01,Incremental,2026-10-01 22:32,2026-10-01 22:45,14,71.4,Completed,,
-4810218,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-01 22:35,2026-10-01 22:45,10,7.5,Completed w/ errors,SIM-2001,One or more files skipped: access denied
+4810218,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-01 22:35,2026-10-01 22:45,10,7.5,Completed w/ errors,Error Code: 108,One or more files skipped: access denied
 4810219,win-use-002,Windows File System,US-EAST,MA-USE-01,Incremental,2026-10-01 22:35,2026-10-01 22:39,4,5.4,Completed,,
 4810220,hana-use-001,SAP HANA,US-EAST,MA-USE-02,Incremental,2026-10-01 22:36,2026-10-01 22:51,16,98.2,Completed,,
 4810221,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-10-01 22:53,2026-10-01 23:00,7,10.1,Completed,,
@@ -227,7 +227,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810225,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-01 23:47,2026-10-01 23:53,7,5.6,Completed,,
 4810226,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Full,2026-10-02 00:10,2026-10-02 06:03,354,2736.0,Completed,,
 4810227,ora-ukl-003,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-10-02 00:13,2026-10-02 00:28,16,104.8,Completed,,
-4810228,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Full,2026-10-02 00:20,2026-10-02 00:51,31,79.5,Completed w/ errors,SIM-2002,One or more files skipped: file in use
+4810228,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Full,2026-10-02 00:20,2026-10-02 00:51,31,79.5,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
 4810229,vmw-usc-006,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-02 00:30,2026-10-02 00:41,11,68.9,Completed,,
 4810230,lnx-usc-003,Linux File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-02 00:31,2026-10-02 00:37,6,5.4,Completed,,
 4810231,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-10-02 00:31,2026-10-02 00:35,4,2.1,Completed,,
@@ -270,7 +270,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810268,vmw-use-007,VMware,US-EAST,MA-USE-02,Full,2026-10-02 21:38,2026-10-02 22:26,49,339.0,Completed,,
 4810269,vmw-use-004,VMware,US-EAST,MA-USE-02,Full,2026-10-02 21:39,2026-10-03 00:41,183,1332.9,Completed,,
 4810270,sql-use-002,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-02 21:44,2026-10-02 21:52,9,31.3,Completed,,
-4810271,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-02 22:03,2026-10-02 22:12,10,2.8,Completed w/ errors,SIM-2002,One or more files skipped: file in use
+4810271,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-02 22:03,2026-10-02 22:12,10,2.8,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
 4810272,sql-ukl-001,SQL Server,UK-LONDON,MA-UKL-01,Incremental,2026-10-02 22:07,2026-10-02 22:15,8,12.9,Completed,,
 4810273,vmw-ukl-007,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-02 22:11,2026-10-02 22:20,9,41.5,Completed,,
 4810274,vmw-ukl-006,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-02 22:15,2026-10-02 22:23,9,23.1,Completed,,
@@ -328,7 +328,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810326,sql-use-002,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-03 21:38,2026-10-03 21:48,10,29.9,Completed,,
 4810327,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Incremental,2026-10-03 21:39,2026-10-03 22:05,26,115.2,Completed,,
 4810328,vmw-usc-003,VMware,US-CENTRAL,MA-USC-02,Incremental,2026-10-03 21:39,2026-10-03 21:51,12,25.5,Completed,,
-4810329,vmw-use-004,VMware,US-EAST,MA-USE-02,Incremental,2026-10-03 21:41,2026-10-03 21:44,4,12.4,Failed,SIM-1006,VMware snapshot quiesce timeout
+4810329,vmw-use-004,VMware,US-EAST,MA-USE-02,Incremental,2026-10-03 21:41,2026-10-03 21:44,4,12.4,Failed,Error Code: 106,VMware snapshot quiesce timeout
 4810330,vmw-use-007,VMware,US-EAST,MA-USE-02,Incremental,2026-10-03 21:57,2026-10-03 22:02,6,9.2,Completed,,
 4810331,vmw-ukl-007,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-03 22:08,2026-10-03 22:19,12,50.2,Completed,,
 4810332,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-03 22:11,2026-10-03 22:17,6,13.3,Completed,,
@@ -345,14 +345,14 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810343,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-03 23:26,2026-10-03 23:36,11,15.1,Completed,,
 4810344,vmw-use-008,VMware,US-EAST,MA-USE-01,Full,2026-10-03 23:42,2026-10-04 02:41,179,1222.6,Completed,,
 4810345,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-03 23:58,2026-10-04 00:08,11,6.0,Completed,,
-4810346,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-04 00:11,2026-10-04 00:31,20,149.1,Completed w/ errors,SIM-2001,One or more files skipped: access denied
+4810346,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-04 00:11,2026-10-04 00:31,20,149.1,Completed w/ errors,Error Code: 108,One or more files skipped: access denied
 4810347,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-04 00:18,2026-10-04 00:24,7,1.1,Completed,,
 4810348,vmw-usc-006,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-04 00:22,2026-10-04 00:39,18,69.4,Completed,,
 4810349,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-10-04 00:22,2026-10-04 00:28,7,2.4,Completed,,
 4810350,ora-ukl-003,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-10-04 00:29,2026-10-04 00:45,16,81.9,Completed,,
 4810351,lnx-usc-003,Linux File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-04 00:37,2026-10-04 00:48,12,6.9,Completed,,
 4810352,hana-use-002,SAP HANA,US-EAST,MA-USE-02,Full,2026-10-04 00:44,2026-10-04 06:34,350,2488.3,Completed,,
-4810353,ora-ukl-001,Oracle,UK-LONDON,MA-UKL-02,Full,2026-10-04 00:44,2026-10-04 03:21,158,695.9,Completed w/ errors,SIM-2003,Some items could not be read from source
+4810353,ora-ukl-001,Oracle,UK-LONDON,MA-UKL-02,Full,2026-10-04 00:44,2026-10-04 03:21,158,695.9,Completed w/ errors,Error Code: 110,Some items could not be read from source
 4810354,vmw-ukl-001,VMware,UK-LONDON,MA-UKL-01,Full,2026-10-04 00:46,2026-10-04 03:37,171,853.2,Completed,,
 4810355,vmw-use-002,VMware,US-EAST,MA-USE-02,Incremental,2026-10-04 00:50,2026-10-04 01:05,15,74.8,Completed,,
 4810356,vmw-usc-002,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-04 00:56,2026-10-04 01:05,10,15.4,Completed,,
@@ -388,17 +388,17 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810386,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Full,2026-10-04 21:38,2026-10-05 04:09,392,1862.6,Completed,,
 4810387,vmw-use-007,VMware,US-EAST,MA-USE-02,Incremental,2026-10-04 21:42,2026-10-04 21:52,11,7.5,Completed,,
 4810388,vmw-use-004,VMware,US-EAST,MA-USE-02,Incremental,2026-10-04 21:47,2026-10-04 21:58,11,42.3,Completed,,
-4810389,sql-use-002,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-04 21:49,2026-10-04 22:00,12,30.9,Completed w/ errors,SIM-2002,One or more files skipped: file in use
+4810389,sql-use-002,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-04 21:49,2026-10-04 22:00,12,30.9,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
 4810390,sql-use-006,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-04 21:57,2026-10-04 22:13,17,74.0,Completed,,
 4810391,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-04 21:58,2026-10-04 22:09,11,11.3,Completed,,
 4810392,vmw-ukl-006,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-04 22:07,2026-10-04 22:20,13,24.6,Completed,,
-4810393,vmw-ukl-007,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-04 22:18,2026-10-04 22:37,20,55.7,Completed w/ errors,SIM-2002,One or more files skipped: file in use
-4810394,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-04 22:18,2026-10-04 22:19,2,0.6,Failed,SIM-1003,VSS snapshot creation failed on client
-4810395,vmw-ukl-004,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-04 22:20,2026-10-04 22:22,3,3.6,Failed,SIM-1006,VMware snapshot quiesce timeout
+4810393,vmw-ukl-007,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-04 22:18,2026-10-04 22:37,20,55.7,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
+4810394,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-04 22:18,2026-10-04 22:19,2,0.6,Failed,Error Code: 103,VSS snapshot creation failed on client
+4810395,vmw-ukl-004,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-04 22:20,2026-10-04 22:22,3,3.6,Failed,Error Code: 106,VMware snapshot quiesce timeout
 4810396,sql-ukl-001,SQL Server,UK-LONDON,MA-UKL-01,Incremental,2026-10-04 22:21,2026-10-04 22:30,9,15.3,Completed,,
 4810397,vmw-use-006,VMware,US-EAST,MA-USE-01,Incremental,2026-10-04 22:30,2026-10-04 22:45,16,67.7,Completed,,
 4810398,hana-use-001,SAP HANA,US-EAST,MA-USE-02,Incremental,2026-10-04 22:31,2026-10-04 22:58,27,144.8,Completed,,
-4810399,win-use-002,Windows File System,US-EAST,MA-USE-01,Incremental,2026-10-04 22:37,2026-10-04 22:45,9,6.1,Completed w/ errors,SIM-2002,One or more files skipped: file in use
+4810399,win-use-002,Windows File System,US-EAST,MA-USE-01,Incremental,2026-10-04 22:37,2026-10-04 22:45,9,6.1,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
 4810400,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-04 22:38,2026-10-04 22:43,5,6.1,Completed,,
 4810401,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-10-04 22:41,2026-10-04 22:47,6,7.1,Completed,,
 4810402,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-04 23:14,2026-10-04 23:19,6,18.0,Completed,,
@@ -418,7 +418,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810416,win-usc-006,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-05 00:55,2026-10-05 01:00,6,6.0,Completed,,
 4810417,vmw-use-002,VMware,US-EAST,MA-USE-02,Incremental,2026-10-05 00:58,2026-10-05 01:09,12,55.5,Completed,,
 4810418,vmw-ukl-005,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-10-05 01:05,2026-10-05 01:14,9,23.6,Completed,,
-4810419,win-usc-004,Windows File System,US-CENTRAL,MA-USC-01,Full,2026-10-05 01:22,2026-10-05 01:53,32,111.8,Completed w/ errors,SIM-2002,One or more files skipped: file in use
+4810419,win-usc-004,Windows File System,US-CENTRAL,MA-USC-01,Full,2026-10-05 01:22,2026-10-05 01:53,32,111.8,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
 4810420,vmw-usc-005,VMware,US-CENTRAL,MA-USC-02,Full,2026-10-05 20:02,2026-10-05 22:23,141,1027.8,Completed,,
 4810421,sql-use-004,SQL Server,US-EAST,MA-USE-01,Incremental,2026-10-05 20:04,2026-10-05 20:16,12,34.5,Completed,,
 4810422,sql-use-003,SQL Server,US-EAST,MA-USE-01,Incremental,2026-10-05 20:11,2026-10-05 20:24,14,41.5,Completed,,
@@ -442,7 +442,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810440,hana-ukl-002,SAP HANA,UK-LONDON,MA-UKL-01,Incremental,2026-10-05 21:14,2026-10-05 21:50,37,169.2,Completed,,
 4810441,sql-use-001,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-05 21:21,2026-10-05 21:37,16,38.0,Completed,,
 4810442,win-usc-008,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-05 21:21,2026-10-05 21:30,10,3.6,Completed,,
-4810443,win-usc-003,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-05 21:24,2026-10-05 21:26,2,0.4,Failed,SIM-1001,Unable to connect to client; communication services not responding
+4810443,win-usc-003,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-05 21:24,2026-10-05 21:26,2,0.4,Failed,Error Code: 101,Unable to connect to client; communication services not responding
 4810444,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Incremental,2026-10-05 21:27,2026-10-05 21:54,28,115.4,Completed,,
 4810445,vmw-usc-003,VMware,US-CENTRAL,MA-USC-02,Incremental,2026-10-05 21:29,2026-10-05 21:41,13,31.0,Completed,,
 4810446,hana-ukl-004,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-10-05 21:36,2026-10-05 21:58,22,130.4,Completed,,
@@ -462,7 +462,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810460,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-05 22:35,2026-10-05 22:44,10,7.4,Completed,,
 4810461,vmw-use-005,VMware,US-EAST,MA-USE-01,Full,2026-10-05 22:40,2026-10-05 23:24,45,284.6,Completed,,
 4810462,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-05 23:26,2026-10-05 23:34,8,14.4,Completed,,
-4810463,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-05 23:30,2026-10-05 23:33,3,1.8,Failed,SIM-1001,Unable to connect to client; communication services not responding
+4810463,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-05 23:30,2026-10-05 23:33,3,1.8,Failed,Error Code: 101,Unable to connect to client; communication services not responding
 4810464,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-10-05 23:36,2026-10-05 23:45,9,44.7,Completed,,
 4810465,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-05 23:42,2026-10-05 23:49,8,7.2,Completed,,
 4810466,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-06 00:15,2026-10-06 00:34,19,122.2,Completed,,
@@ -484,7 +484,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810482,vmw-usc-005,VMware,US-CENTRAL,MA-USC-02,Incremental,2026-10-06 20:12,2026-10-06 20:21,9,46.4,Completed,,
 4810483,ora-ukl-004,Oracle,UK-LONDON,MA-UKL-01,Full,2026-10-06 20:13,2026-10-07 00:50,278,1748.2,Completed,,
 4810484,hana-ukl-001,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-10-06 20:19,2026-10-06 20:51,33,287.9,Completed,,
-4810485,vmw-use-001,VMware,US-EAST,MA-USE-01,Incremental,2026-10-06 20:19,2026-10-06 20:29,10,10.6,Completed w/ errors,SIM-2001,One or more files skipped: access denied
+4810485,vmw-use-001,VMware,US-EAST,MA-USE-01,Incremental,2026-10-06 20:19,2026-10-06 20:29,10,10.6,Completed w/ errors,Error Code: 108,One or more files skipped: access denied
 4810486,lnx-ukl-001,Linux File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-06 20:23,2026-10-06 20:32,10,3.7,Completed,,
 4810487,vmw-ukl-002,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-10-06 20:26,2026-10-06 20:32,6,12.9,Completed,,
 4810488,hana-ukl-003,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-10-06 20:27,2026-10-06 21:11,45,175.8,Completed,,
@@ -581,9 +581,9 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810579,win-use-002,Windows File System,US-EAST,MA-USE-01,Incremental,2026-10-07 22:39,2026-10-07 22:49,11,6.5,Completed,,
 4810580,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-07 22:45,2026-10-07 22:58,13,9.1,Completed,,
 4810581,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-10-07 22:59,2026-10-07 23:07,8,6.7,Completed,,
-4810582,sql-use-005,SQL Server,US-EAST,MA-USE-02,Full,2026-10-07 23:18,2026-10-07 23:22,5,61.7,Failed,SIM-1004,Database log backup chain broken; full backup required
+4810582,sql-use-005,SQL Server,US-EAST,MA-USE-02,Full,2026-10-07 23:18,2026-10-07 23:22,5,61.7,Failed,Error Code: 104,Database log backup chain broken; full backup required
 4810583,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-07 23:31,2026-10-07 23:39,8,12.4,Completed,,
-4810584,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-07 23:44,2026-10-07 23:51,7,5.8,Completed w/ errors,SIM-2003,Some items could not be read from source
+4810584,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-07 23:44,2026-10-07 23:51,7,5.8,Completed w/ errors,Error Code: 110,Some items could not be read from source
 4810585,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-10-07 23:56,2026-10-08 00:10,15,46.4,Completed,,
 4810586,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-08 00:13,2026-10-08 00:39,27,150.4,Completed,,
 4810587,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-08 00:16,2026-10-08 00:23,7,0.9,Completed,,
@@ -604,7 +604,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810602,sql-use-003,SQL Server,US-EAST,MA-USE-01,Incremental,2026-10-08 20:04,2026-10-08 20:12,9,27.7,Completed,,
 4810603,sql-use-004,SQL Server,US-EAST,MA-USE-01,Incremental,2026-10-08 20:11,2026-10-08 20:26,16,45.8,Completed,,
 4810604,vmw-use-001,VMware,US-EAST,MA-USE-01,Incremental,2026-10-08 20:13,2026-10-08 20:18,5,13.4,Completed,,
-4810605,ora-ukl-004,Oracle,UK-LONDON,MA-UKL-01,Incremental,2026-10-08 20:17,2026-10-08 20:38,21,59.5,Completed w/ errors,SIM-2002,One or more files skipped: file in use
+4810605,ora-ukl-004,Oracle,UK-LONDON,MA-UKL-01,Incremental,2026-10-08 20:17,2026-10-08 20:38,21,59.5,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
 4810606,sql-usc-001,SQL Server,US-CENTRAL,MA-USC-02,Incremental,2026-10-08 20:17,2026-10-08 20:24,7,21.9,Completed,,
 4810607,vmw-ukl-002,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-10-08 20:17,2026-10-08 20:26,10,18.3,Completed,,
 4810608,vmw-use-003,VMware,US-EAST,MA-USE-01,Incremental,2026-10-08 20:23,2026-10-08 20:34,11,31.8,Completed,,
@@ -638,12 +638,12 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810636,sql-ukl-001,SQL Server,UK-LONDON,MA-UKL-01,Incremental,2026-10-08 22:20,2026-10-08 22:29,9,15.4,Completed,,
 4810637,vmw-use-006,VMware,US-EAST,MA-USE-01,Incremental,2026-10-08 22:20,2026-10-08 22:34,15,94.1,Completed,,
 4810638,win-use-002,Windows File System,US-EAST,MA-USE-01,Incremental,2026-10-08 22:26,2026-10-08 22:32,6,5.6,Completed,,
-4810639,hana-use-001,SAP HANA,US-EAST,MA-USE-02,Incremental,2026-10-08 22:38,2026-10-08 23:02,24,162.0,Completed w/ errors,SIM-2001,One or more files skipped: access denied
+4810639,hana-use-001,SAP HANA,US-EAST,MA-USE-02,Incremental,2026-10-08 22:38,2026-10-08 23:02,24,162.0,Completed w/ errors,Error Code: 108,One or more files skipped: access denied
 4810640,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-08 22:47,2026-10-08 22:56,10,6.3,Completed,,
 4810641,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-10-08 22:51,2026-10-08 23:01,10,8.1,Completed,,
-4810642,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-08 23:16,2026-10-08 23:17,1,5.5,Failed,SIM-1004,Database log backup chain broken; full backup required
+4810642,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-08 23:16,2026-10-08 23:17,1,5.5,Failed,Error Code: 104,Database log backup chain broken; full backup required
 4810643,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-08 23:19,2026-10-08 23:26,8,12.9,Completed,,
-4810644,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-10-08 23:50,2026-10-09 00:01,11,42.7,Completed w/ errors,SIM-2001,One or more files skipped: access denied
+4810644,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-10-08 23:50,2026-10-09 00:01,11,42.7,Completed w/ errors,Error Code: 108,One or more files skipped: access denied
 4810645,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-09 00:01,2026-10-09 00:08,8,5.6,Completed,,
 4810646,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Full,2026-10-09 00:03,2026-10-09 05:29,327,2749.9,Completed,,
 4810647,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-10-09 00:18,2026-10-09 00:25,8,2.1,Completed,,
@@ -687,8 +687,8 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810685,hana-use-003,SAP HANA,US-EAST,MA-USE-01,Incremental,2026-10-09 21:31,2026-10-09 22:01,31,132.8,Completed,,
 4810686,hana-ukl-004,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-10-09 21:39,2026-10-09 22:00,21,151.9,Completed,,
 4810687,vmw-use-007,VMware,US-EAST,MA-USE-02,Full,2026-10-09 21:41,2026-10-09 22:37,56,340.5,Completed,,
-4810688,sql-use-002,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-09 21:45,2026-10-09 21:55,10,18.8,Completed w/ errors,SIM-2003,Some items could not be read from source
-4810689,vmw-use-004,VMware,US-EAST,MA-USE-02,Full,2026-10-09 21:49,2026-10-10 00:50,181,1272.1,Completed w/ errors,SIM-2003,Some items could not be read from source
+4810688,sql-use-002,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-09 21:45,2026-10-09 21:55,10,18.8,Completed w/ errors,Error Code: 110,Some items could not be read from source
+4810689,vmw-use-004,VMware,US-EAST,MA-USE-02,Full,2026-10-09 21:49,2026-10-10 00:50,181,1272.1,Completed w/ errors,Error Code: 110,Some items could not be read from source
 4810690,sql-use-006,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-09 21:50,2026-10-09 22:05,16,56.7,Completed,,
 4810691,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-09 22:01,2026-10-09 22:08,8,3.4,Completed,,
 4810692,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Full,2026-10-09 22:05,2026-10-09 22:44,39,286.6,Completed,,
@@ -701,12 +701,12 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810699,hana-use-001,SAP HANA,US-EAST,MA-USE-02,Incremental,2026-10-09 22:35,2026-10-09 23:01,27,127.0,Completed,,
 4810700,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-10-09 22:41,2026-10-09 22:49,9,7.9,Completed,,
 4810701,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Full,2026-10-09 22:46,2026-10-10 00:26,100,224.0,Completed,,
-4810702,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-09 23:23,2026-10-09 23:26,4,1.7,Failed,SIM-1004,Database log backup chain broken; full backup required
+4810702,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-09 23:23,2026-10-09 23:26,4,1.7,Failed,Error Code: 104,Database log backup chain broken; full backup required
 4810703,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-09 23:28,2026-10-09 23:37,10,12.2,Completed,,
 4810704,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-10-09 23:55,2026-10-10 00:03,9,40.5,Completed,,
 4810705,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-09 23:57,2026-10-10 00:24,28,178.7,Completed,,
 4810706,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Full,2026-10-09 23:57,2026-10-10 01:11,74,276.5,Completed,,
-4810707,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-10 00:08,2026-10-10 00:09,1,0.1,Failed,SIM-1003,VSS snapshot creation failed on client
+4810707,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-10 00:08,2026-10-10 00:09,1,0.1,Failed,Error Code: 103,VSS snapshot creation failed on client
 4810708,ora-ukl-003,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-10-10 00:14,2026-10-10 00:29,15,73.5,Completed,,
 4810709,vmw-usc-006,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 00:25,2026-10-10 00:41,16,50.1,Completed,,
 4810710,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Full,2026-10-10 00:25,2026-10-10 01:09,45,71.3,Completed,,
@@ -729,18 +729,18 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810727,ora-ukl-004,Oracle,UK-LONDON,MA-UKL-01,Incremental,2026-10-10 20:18,2026-10-10 20:41,24,90.4,Completed,,
 4810728,sql-usc-001,SQL Server,US-CENTRAL,MA-USC-02,Incremental,2026-10-10 20:21,2026-10-10 20:28,8,25.8,Completed,,
 4810729,ora-ukl-002,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-10-10 20:30,2026-10-10 20:42,12,33.4,Completed,,
-4810730,vmw-usc-001,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 20:35,2026-10-10 20:36,1,5.8,Failed,SIM-1002,Media agent unreachable or offline
+4810730,vmw-usc-001,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 20:35,2026-10-10 20:36,1,5.8,Failed,Error Code: 102,Media agent unreachable or offline
 4810731,lnx-ukl-001,Linux File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-10 20:36,2026-10-10 20:43,8,3.1,Completed,,
-4810732,vmw-use-003,VMware,US-EAST,MA-USE-01,Incremental,2026-10-10 20:36,2026-10-10 20:43,8,30.9,Completed w/ errors,SIM-2001,One or more files skipped: access denied
-4810733,lnx-usc-001,Linux File System,US-CENTRAL,MA-USC-01,Full,2026-10-10 20:40,2026-10-10 20:48,9,40.8,Failed,SIM-1002,Media agent unreachable or offline
+4810732,vmw-use-003,VMware,US-EAST,MA-USE-01,Incremental,2026-10-10 20:36,2026-10-10 20:43,8,30.9,Completed w/ errors,Error Code: 108,One or more files skipped: access denied
+4810733,lnx-usc-001,Linux File System,US-CENTRAL,MA-USC-01,Full,2026-10-10 20:40,2026-10-10 20:48,9,40.8,Failed,Error Code: 102,Media agent unreachable or offline
 4810734,win-use-003,Windows File System,US-EAST,MA-USE-02,Incremental,2026-10-10 20:44,2026-10-10 20:52,8,6.5,Completed,,
 4810735,win-ukl-001,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-10-10 20:49,2026-10-10 20:55,7,3.4,Completed,,
-4810736,win-usc-001,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 20:49,2026-10-10 20:51,3,0.7,Failed,SIM-1002,Media agent unreachable or offline
+4810736,win-usc-001,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 20:49,2026-10-10 20:51,3,0.7,Failed,Error Code: 102,Media agent unreachable or offline
 4810737,win-usc-002,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-10 20:49,2026-10-10 20:56,7,7.9,Completed,,
 4810738,win-use-001,Windows File System,US-EAST,MA-USE-01,Full,2026-10-10 20:58,2026-10-10 21:31,33,63.5,Completed,,
 4810739,vmw-ukl-003,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-10 21:00,2026-10-10 21:10,11,10.7,Completed,,
 4810740,sql-use-001,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-10 21:15,2026-10-10 21:25,11,36.4,Completed,,
-4810741,win-usc-008,Windows File System,US-CENTRAL,MA-USC-01,Full,2026-10-10 21:15,2026-10-10 21:38,23,52.1,Failed,SIM-1002,Media agent unreachable or offline
+4810741,win-usc-008,Windows File System,US-CENTRAL,MA-USC-01,Full,2026-10-10 21:15,2026-10-10 21:38,23,52.1,Failed,Error Code: 102,Media agent unreachable or offline
 4810742,hana-ukl-002,SAP HANA,UK-LONDON,MA-UKL-01,Incremental,2026-10-10 21:27,2026-10-10 22:00,34,144.6,Completed,,
 4810743,win-usc-003,Windows File System,US-CENTRAL,MA-USC-02,Full,2026-10-10 21:29,2026-10-10 23:34,126,430.8,Completed,,
 4810744,hana-ukl-004,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-10-10 21:35,2026-10-10 21:57,23,116.6,Completed,,
@@ -753,32 +753,32 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810751,vmw-ukl-006,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-10 22:05,2026-10-10 22:14,9,24.3,Completed,,
 4810752,vmw-ukl-007,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-10 22:07,2026-10-10 22:27,21,74.3,Completed,,
 4810753,win-usc-007,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-10 22:07,2026-10-10 22:16,10,2.2,Completed,,
-4810754,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 22:08,2026-10-10 22:09,1,1.7,Failed,SIM-1002,Media agent unreachable or offline
+4810754,vmw-usc-004,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 22:08,2026-10-10 22:09,1,1.7,Failed,Error Code: 102,Media agent unreachable or offline
 4810755,vmw-ukl-004,VMware,UK-LONDON,MA-UKL-01,Incremental,2026-10-10 22:09,2026-10-10 22:18,9,39.0,Completed,,
 4810756,sql-ukl-001,SQL Server,UK-LONDON,MA-UKL-01,Full,2026-10-10 22:15,2026-10-10 23:32,78,310.0,Completed,,
 4810757,hana-use-001,SAP HANA,US-EAST,MA-USE-02,Full,2026-10-10 22:32,2026-10-11 03:20,289,2411.5,Completed,,
 4810758,vmw-use-006,VMware,US-EAST,MA-USE-01,Incremental,2026-10-10 22:33,2026-10-10 22:49,17,87.4,Completed,,
 4810759,win-use-002,Windows File System,US-EAST,MA-USE-01,Incremental,2026-10-10 22:34,2026-10-10 22:41,7,5.2,Completed,,
-4810760,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 22:45,2026-10-10 22:46,2,0.9,Failed,SIM-1002,Media agent unreachable or offline
+4810760,lnx-usc-002,Linux File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-10 22:45,2026-10-10 22:46,2,0.9,Failed,Error Code: 102,Media agent unreachable or offline
 4810761,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-10-10 22:59,2026-10-10 23:04,5,8.7,Completed,,
 4810762,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-10 23:20,2026-10-10 23:29,9,12.0,Completed,,
-4810763,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-10 23:22,2026-10-10 23:23,1,4.2,Failed,SIM-1004,Database log backup chain broken; full backup required
+4810763,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-10 23:22,2026-10-10 23:23,1,4.2,Failed,Error Code: 104,Database log backup chain broken; full backup required
 4810764,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-10 23:46,2026-10-10 23:54,9,4.4,Completed,,
 4810765,vmw-use-008,VMware,US-EAST,MA-USE-01,Full,2026-10-10 23:47,2026-10-11 02:27,161,1203.3,Completed,,
-4810766,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 00:06,2026-10-11 00:11,6,5.5,Failed,SIM-1002,Media agent unreachable or offline
-4810767,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-11 00:10,2026-10-11 00:11,1,0.1,Failed,SIM-1003,VSS snapshot creation failed on client
+4810766,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 00:06,2026-10-11 00:11,6,5.5,Failed,Error Code: 102,Media agent unreachable or offline
+4810767,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-11 00:10,2026-10-11 00:11,1,0.1,Failed,Error Code: 103,VSS snapshot creation failed on client
 4810768,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-10-11 00:20,2026-10-11 00:27,8,2.4,Completed,,
 4810769,ora-ukl-003,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-10-11 00:28,2026-10-11 00:42,15,70.0,Completed,,
 4810770,lnx-usc-003,Linux File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-11 00:29,2026-10-11 00:34,5,5.9,Completed,,
-4810771,vmw-usc-006,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 00:32,2026-10-11 00:36,5,2.0,Failed,SIM-1002,Media agent unreachable or offline
+4810771,vmw-usc-006,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 00:32,2026-10-11 00:36,5,2.0,Failed,Error Code: 102,Media agent unreachable or offline
 4810772,ora-ukl-001,Oracle,UK-LONDON,MA-UKL-02,Full,2026-10-11 00:47,2026-10-11 03:40,174,731.7,Completed,,
 4810773,vmw-ukl-001,VMware,UK-LONDON,MA-UKL-01,Full,2026-10-11 00:47,2026-10-11 04:06,199,851.3,Completed,,
 4810774,hana-use-002,SAP HANA,US-EAST,MA-USE-02,Full,2026-10-11 00:49,2026-10-11 07:16,387,2463.6,Completed,,
-4810775,vmw-ukl-005,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-10-11 00:53,2026-10-11 00:55,3,5.4,Failed,SIM-1006,VMware snapshot quiesce timeout
-4810776,vmw-usc-002,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 00:55,2026-10-11 00:56,1,2.3,Failed,SIM-1002,Media agent unreachable or offline
+4810775,vmw-ukl-005,VMware,UK-LONDON,MA-UKL-02,Incremental,2026-10-11 00:53,2026-10-11 00:55,3,5.4,Failed,Error Code: 106,VMware snapshot quiesce timeout
+4810776,vmw-usc-002,VMware,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 00:55,2026-10-11 00:56,1,2.3,Failed,Error Code: 102,Media agent unreachable or offline
 4810777,win-usc-006,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-11 00:55,2026-10-11 01:01,7,4.7,Completed,,
 4810778,vmw-use-002,VMware,US-EAST,MA-USE-02,Incremental,2026-10-11 01:00,2026-10-11 01:09,10,42.4,Completed,,
-4810779,win-usc-004,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 01:20,2026-10-11 01:21,1,0.4,Failed,SIM-1002,Media agent unreachable or offline
+4810779,win-usc-004,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 01:20,2026-10-11 01:21,1,0.4,Failed,Error Code: 102,Media agent unreachable or offline
 4810780,vmw-usc-005,VMware,US-CENTRAL,MA-USC-02,Incremental,2026-10-11 19:56,2026-10-11 20:13,18,53.3,Completed,,
 4810781,sql-use-004,SQL Server,US-EAST,MA-USE-01,Incremental,2026-10-11 20:07,2026-10-11 20:20,13,35.3,Completed,,
 4810782,ora-ukl-004,Oracle,UK-LONDON,MA-UKL-01,Incremental,2026-10-11 20:14,2026-10-11 20:33,20,74.6,Completed,,
@@ -800,7 +800,7 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810798,win-ukl-001,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-10-11 20:50,2026-10-11 20:56,7,4.2,Completed,,
 4810799,win-use-003,Windows File System,US-EAST,MA-USE-02,Incremental,2026-10-11 20:59,2026-10-11 21:11,12,8.1,Completed,,
 4810800,win-usc-008,Windows File System,US-CENTRAL,MA-USC-01,Incremental,2026-10-11 21:24,2026-10-11 21:34,10,3.2,Completed,,
-4810801,sql-use-001,SQL Server,US-EAST,MA-USE-02,Full,2026-10-11 21:25,2026-10-11 23:00,96,406.0,Completed w/ errors,SIM-2002,One or more files skipped: file in use
+4810801,sql-use-001,SQL Server,US-EAST,MA-USE-02,Full,2026-10-11 21:25,2026-10-11 23:00,96,406.0,Completed w/ errors,Error Code: 109,One or more files skipped: file in use
 4810802,win-usc-003,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-11 21:28,2026-10-11 21:39,11,4.9,Completed,,
 4810803,hana-ukl-002,SAP HANA,UK-LONDON,MA-UKL-01,Incremental,2026-10-11 21:29,2026-10-11 22:13,45,177.1,Completed,,
 4810804,hana-ukl-004,SAP HANA,UK-LONDON,MA-UKL-02,Incremental,2026-10-11 21:35,2026-10-11 21:42,7,6.8,Completed,,
@@ -822,11 +822,11 @@ job_id,client,agent_type,site,media_agent,backup_level,start_time,end_time,durat
 4810820,vmw-use-005,VMware,US-EAST,MA-USE-01,Incremental,2026-10-11 22:51,2026-10-11 23:00,9,11.0,Completed,,
 4810821,sql-use-005,SQL Server,US-EAST,MA-USE-02,Incremental,2026-10-11 23:21,2026-10-11 23:30,10,24.6,Completed,,
 4810822,win-usc-009,Windows File System,US-CENTRAL,MA-USC-02,Full,2026-10-11 23:30,2026-10-12 02:12,163,407.2,Completed,,
-4810823,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-10-11 23:39,2026-10-11 23:41,2,1.4,Failed,SIM-1001,Unable to connect to client; communication services not responding
+4810823,vmw-use-008,VMware,US-EAST,MA-USE-01,Incremental,2026-10-11 23:39,2026-10-11 23:41,2,1.4,Failed,Error Code: 101,Unable to connect to client; communication services not responding
 4810824,win-usc-005,Windows File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-11 23:41,2026-10-11 23:51,10,6.5,Completed,,
 4810825,hana-usc-001,SAP HANA,US-CENTRAL,MA-USC-01,Incremental,2026-10-12 00:04,2026-10-12 00:23,20,116.0,Completed,,
 4810826,win-ukl-003,Windows File System,UK-LONDON,MA-UKL-01,Incremental,2026-10-12 00:17,2026-10-12 00:23,7,1.6,Completed,,
-4810827,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-12 00:20,2026-10-12 00:22,2,0.2,Failed,SIM-1003,VSS snapshot creation failed on client
+4810827,win-ukl-002,Windows File System,UK-LONDON,MA-UKL-02,Incremental,2026-10-12 00:20,2026-10-12 00:22,2,0.2,Failed,Error Code: 103,VSS snapshot creation failed on client
 4810828,ora-ukl-003,Oracle,UK-LONDON,MA-UKL-02,Incremental,2026-10-12 00:22,2026-10-12 00:40,18,77.8,Completed,,
 4810829,vmw-usc-006,VMware,US-CENTRAL,MA-USC-01,Full,2026-10-12 00:25,2026-10-12 03:14,170,1289.1,Completed,,
 4810830,lnx-usc-003,Linux File System,US-CENTRAL,MA-USC-02,Incremental,2026-10-12 00:40,2026-10-12 00:50,10,4.7,Completed,,
