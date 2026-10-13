@@ -1,0 +1,705 @@
+{
+  "report": {
+    "first_night": "2026-09-28",
+    "last_night": "2026-10-11",
+    "nights": 14,
+    "clients": 60,
+    "total_jobs": 838,
+    "status_counts": {
+      "Completed": 782,
+      "Failed": 36,
+      "Completed w/ errors": 20
+    }
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "type": "repeat_failure",
+      "severity": "critical",
+      "clients": [
+        "win-ukl-002"
+      ],
+      "media_agent": "MA-UKL-02",
+      "site": "UK-LONDON",
+      "nights": [
+        "2026-10-09",
+        "2026-10-10",
+        "2026-10-11"
+      ],
+      "job_ids": [
+        4810707,
+        4810767,
+        4810827
+      ],
+      "evidence": {
+        "consecutive_failed_nights": 3,
+        "still_failing_on_last_night": true,
+        "error_codes": {
+          "SIM-1003": 3
+        }
+      },
+      "summary": "win-ukl-002 failed 3 nights in a row (2026-10-09 to 2026-10-11) with SIM-1003; still failing as of the last night."
+    },
+    {
+      "id": "F02",
+      "type": "media_agent_outage",
+      "severity": "critical",
+      "clients": [
+        "hana-usc-001",
+        "lnx-usc-001",
+        "lnx-usc-002",
+        "vmw-usc-001",
+        "vmw-usc-002",
+        "vmw-usc-004",
+        "vmw-usc-006",
+        "win-usc-001",
+        "win-usc-004",
+        "win-usc-008"
+      ],
+      "media_agent": "MA-USC-01",
+      "site": "US-CENTRAL",
+      "nights": [
+        "2026-10-10"
+      ],
+      "job_ids": [
+        4810730,
+        4810733,
+        4810736,
+        4810741,
+        4810754,
+        4810760,
+        4810766,
+        4810771,
+        4810776,
+        4810779
+      ],
+      "evidence": {
+        "failed_jobs": 10,
+        "total_jobs_on_media_agent": 10,
+        "fail_ratio": 1.0,
+        "error_codes": {
+          "SIM-1002": 10
+        }
+      },
+      "summary": "10 of 10 jobs on MA-USC-01 failed on 2026-10-10; most common error SIM-1002. Likely one shared root cause on the media agent."
+    },
+    {
+      "id": "F03",
+      "clients": [
+        "vmw-use-001"
+      ],
+      "media_agent": "MA-USE-01",
+      "site": "US-EAST",
+      "nights": [
+        "2026-10-03"
+      ],
+      "job_ids": [
+        4810308
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 1.4,
+        "normal_size_gb": 14.1,
+        "size_ratio": 0.1,
+        "duration_min": 6.0,
+        "normal_duration_min": 8.5,
+        "duration_ratio": 0.71,
+        "baseline_jobs": 10
+      },
+      "type": "size_drop",
+      "severity": "high",
+      "summary": "vmw-use-001 reported Completed but backed up 1.4 GB vs. a normal 14.1 GB (10% of normal incremental). Possible silent failure."
+    },
+    {
+      "id": "F04",
+      "clients": [
+        "vmw-ukl-007"
+      ],
+      "media_agent": "MA-UKL-01",
+      "site": "UK-LONDON",
+      "nights": [
+        "2026-10-05"
+      ],
+      "job_ids": [
+        4810456
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 7.1,
+        "normal_size_gb": 55.7,
+        "size_ratio": 0.13,
+        "duration_min": 7.0,
+        "normal_duration_min": 16.0,
+        "duration_ratio": 0.44,
+        "baseline_jobs": 11
+      },
+      "type": "size_drop",
+      "severity": "high",
+      "summary": "vmw-ukl-007 reported Completed but backed up 7.1 GB vs. a normal 55.7 GB (13% of normal incremental). Possible silent failure."
+    },
+    {
+      "id": "F05",
+      "type": "repeat_failure",
+      "severity": "high",
+      "clients": [
+        "sql-use-005"
+      ],
+      "media_agent": "MA-USE-02",
+      "site": "US-EAST",
+      "nights": [
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-10"
+      ],
+      "job_ids": [
+        4810582,
+        4810642,
+        4810702,
+        4810763
+      ],
+      "evidence": {
+        "consecutive_failed_nights": 4,
+        "still_failing_on_last_night": false,
+        "error_codes": {
+          "SIM-1004": 4
+        }
+      },
+      "summary": "sql-use-005 failed 4 nights in a row (2026-10-07 to 2026-10-10) with SIM-1004."
+    },
+    {
+      "id": "F06",
+      "clients": [
+        "vmw-ukl-003"
+      ],
+      "media_agent": "MA-UKL-01",
+      "site": "UK-LONDON",
+      "nights": [
+        "2026-10-09"
+      ],
+      "job_ids": [
+        4810676
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 69.4,
+        "normal_size_gb": 12.3,
+        "size_ratio": 5.64,
+        "duration_min": 19.0,
+        "normal_duration_min": 9.0,
+        "duration_ratio": 2.11,
+        "baseline_jobs": 11
+      },
+      "type": "size_spike",
+      "severity": "high",
+      "summary": "vmw-ukl-003 incremental was 69.4 GB vs. a normal 12.3 GB (5.6x). Abnormal change rate; check for mass data change or ransomware encryption."
+    },
+    {
+      "id": "F07",
+      "clients": [
+        "hana-ukl-004"
+      ],
+      "media_agent": "MA-UKL-02",
+      "site": "UK-LONDON",
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [
+        4810804
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 6.8,
+        "normal_size_gb": 145.3,
+        "size_ratio": 0.05,
+        "duration_min": 7.0,
+        "normal_duration_min": 22.0,
+        "duration_ratio": 0.32,
+        "baseline_jobs": 11
+      },
+      "type": "size_drop",
+      "severity": "high",
+      "summary": "hana-ukl-004 reported Completed but backed up 6.8 GB vs. a normal 145.3 GB (5% of normal incremental). Possible silent failure."
+    },
+    {
+      "id": "F08",
+      "type": "missed_backup",
+      "severity": "high",
+      "clients": [
+        "hana-use-003"
+      ],
+      "media_agent": "MA-USE-01",
+      "site": "US-EAST",
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [],
+      "evidence": {
+        "previous_job_id": 4810746,
+        "previous_job_night": "2026-10-10",
+        "previous_job_status": "Completed"
+      },
+      "summary": "No backup job ran for hana-use-003 on 2026-10-11. Status-based failure reports would not show this."
+    },
+    {
+      "id": "F09",
+      "type": "missed_backup",
+      "severity": "high",
+      "clients": [
+        "ora-ukl-001"
+      ],
+      "media_agent": "MA-UKL-02",
+      "site": "UK-LONDON",
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [],
+      "evidence": {
+        "previous_job_id": 4810772,
+        "previous_job_night": "2026-10-10",
+        "previous_job_status": "Completed"
+      },
+      "summary": "No backup job ran for ora-ukl-001 on 2026-10-11. Status-based failure reports would not show this."
+    },
+    {
+      "id": "F10",
+      "clients": [
+        "vmw-use-004"
+      ],
+      "media_agent": "MA-USE-02",
+      "site": "US-EAST",
+      "nights": [
+        "2026-10-11"
+      ],
+      "job_ids": [
+        4810808
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 238.1,
+        "normal_size_gb": 40.6,
+        "size_ratio": 5.86,
+        "duration_min": 44.0,
+        "normal_duration_min": 12.0,
+        "duration_ratio": 3.67,
+        "baseline_jobs": 10
+      },
+      "type": "size_spike",
+      "severity": "high",
+      "summary": "vmw-use-004 incremental was 238.1 GB vs. a normal 40.6 GB (5.9x). Abnormal change rate; check for mass data change or ransomware encryption."
+    },
+    {
+      "id": "F11",
+      "clients": [
+        "vmw-ukl-001"
+      ],
+      "media_agent": "MA-UKL-01",
+      "site": "UK-LONDON",
+      "nights": [
+        "2026-10-04"
+      ],
+      "job_ids": [
+        4810414
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 29.2,
+        "normal_size_gb": 26.8,
+        "size_ratio": 1.09,
+        "duration_min": 50.0,
+        "normal_duration_min": 10.0,
+        "duration_ratio": 5.0,
+        "baseline_jobs": 11
+      },
+      "type": "duration_spike",
+      "severity": "medium",
+      "summary": "vmw-ukl-001 incremental took 50 min vs. a normal 10 min (5.0x) with no matching growth in size. Check throughput, network or media agent load."
+    },
+    {
+      "id": "F12",
+      "clients": [
+        "win-use-002"
+      ],
+      "media_agent": "MA-USE-01",
+      "site": "US-EAST",
+      "nights": [
+        "2026-10-06"
+      ],
+      "job_ids": [
+        4810518
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 9.2,
+        "normal_size_gb": 5.8,
+        "size_ratio": 1.59,
+        "duration_min": 63.0,
+        "normal_duration_min": 7.0,
+        "duration_ratio": 9.0,
+        "baseline_jobs": 11
+      },
+      "type": "duration_spike",
+      "severity": "medium",
+      "summary": "win-use-002 incremental took 63 min vs. a normal 7 min (9.0x) with no matching growth in size. Check throughput, network or media agent load."
+    },
+    {
+      "id": "F13",
+      "clients": [
+        "win-use-003"
+      ],
+      "media_agent": "MA-USE-02",
+      "site": "US-EAST",
+      "nights": [
+        "2026-10-07"
+      ],
+      "job_ids": [
+        4810559
+      ],
+      "evidence": {
+        "backup_level": "Incremental",
+        "status": "Completed",
+        "size_gb": 11.0,
+        "normal_size_gb": 8.4,
+        "size_ratio": 1.31,
+        "duration_min": 74.0,
+        "normal_duration_min": 10.0,
+        "duration_ratio": 7.4,
+        "baseline_jobs": 11
+      },
+      "type": "duration_spike",
+      "severity": "medium",
+      "summary": "win-use-003 incremental took 74 min vs. a normal 10 min (7.4x) with no matching growth in size. Check throughput, network or media agent load."
+    }
+  ],
+  "one_off_issues": [
+    {
+      "job_id": 4810028,
+      "client": "hana-use-003",
+      "night": "2026-09-28",
+      "status": "Failed",
+      "error_code": "SIM-1001",
+      "error_description": "Unable to connect to client; communication services not responding"
+    },
+    {
+      "job_id": 4810027,
+      "client": "vmw-usc-003",
+      "night": "2026-09-28",
+      "status": "Failed",
+      "error_code": "SIM-1006",
+      "error_description": "VMware snapshot quiesce timeout"
+    },
+    {
+      "job_id": 4810041,
+      "client": "vmw-use-005",
+      "night": "2026-09-28",
+      "status": "Failed",
+      "error_code": "SIM-1006",
+      "error_description": "VMware snapshot quiesce timeout"
+    },
+    {
+      "job_id": 4810113,
+      "client": "lnx-usc-003",
+      "night": "2026-09-29",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2003",
+      "error_description": "Some items could not be read from source"
+    },
+    {
+      "job_id": 4810111,
+      "client": "win-ukl-003",
+      "night": "2026-09-29",
+      "status": "Failed",
+      "error_code": "SIM-1003",
+      "error_description": "VSS snapshot creation failed on client"
+    },
+    {
+      "job_id": 4810082,
+      "client": "win-usc-003",
+      "night": "2026-09-29",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2003",
+      "error_description": "Some items could not be read from source"
+    },
+    {
+      "job_id": 4810115,
+      "client": "win-usc-006",
+      "night": "2026-09-29",
+      "status": "Failed",
+      "error_code": "SIM-1005",
+      "error_description": "Insufficient space in disk library mount path"
+    },
+    {
+      "job_id": 4810134,
+      "client": "ora-ukl-002",
+      "night": "2026-09-30",
+      "status": "Failed",
+      "error_code": "SIM-1007",
+      "error_description": "Authentication to database instance failed"
+    },
+    {
+      "job_id": 4810141,
+      "client": "sql-use-001",
+      "night": "2026-09-30",
+      "status": "Failed",
+      "error_code": "SIM-1001",
+      "error_description": "Unable to connect to client; communication services not responding"
+    },
+    {
+      "job_id": 4810149,
+      "client": "sql-use-002",
+      "night": "2026-09-30",
+      "status": "Failed",
+      "error_code": "SIM-1007",
+      "error_description": "Authentication to database instance failed"
+    },
+    {
+      "job_id": 4810128,
+      "client": "vmw-ukl-002",
+      "night": "2026-09-30",
+      "status": "Failed",
+      "error_code": "SIM-1005",
+      "error_description": "Insufficient space in disk library mount path"
+    },
+    {
+      "job_id": 4810163,
+      "client": "win-usc-009",
+      "night": "2026-09-30",
+      "status": "Failed",
+      "error_code": "SIM-1003",
+      "error_description": "VSS snapshot creation failed on client"
+    },
+    {
+      "job_id": 4810218,
+      "client": "lnx-usc-002",
+      "night": "2026-10-01",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2001",
+      "error_description": "One or more files skipped: access denied"
+    },
+    {
+      "job_id": 4810188,
+      "client": "vmw-use-001",
+      "night": "2026-10-01",
+      "status": "Failed",
+      "error_code": "SIM-1006",
+      "error_description": "VMware snapshot quiesce timeout"
+    },
+    {
+      "job_id": 4810228,
+      "client": "win-ukl-002",
+      "night": "2026-10-01",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810214,
+      "client": "win-usc-007",
+      "night": "2026-10-01",
+      "status": "Failed",
+      "error_code": "SIM-1001",
+      "error_description": "Unable to connect to client; communication services not responding"
+    },
+    {
+      "job_id": 4810271,
+      "client": "win-usc-007",
+      "night": "2026-10-02",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810346,
+      "client": "hana-usc-001",
+      "night": "2026-10-03",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2001",
+      "error_description": "One or more files skipped: access denied"
+    },
+    {
+      "job_id": 4810353,
+      "client": "ora-ukl-001",
+      "night": "2026-10-03",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2003",
+      "error_description": "Some items could not be read from source"
+    },
+    {
+      "job_id": 4810329,
+      "client": "vmw-use-004",
+      "night": "2026-10-03",
+      "status": "Failed",
+      "error_code": "SIM-1006",
+      "error_description": "VMware snapshot quiesce timeout"
+    },
+    {
+      "job_id": 4810389,
+      "client": "sql-use-002",
+      "night": "2026-10-04",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810395,
+      "client": "vmw-ukl-004",
+      "night": "2026-10-04",
+      "status": "Failed",
+      "error_code": "SIM-1006",
+      "error_description": "VMware snapshot quiesce timeout"
+    },
+    {
+      "job_id": 4810393,
+      "client": "vmw-ukl-007",
+      "night": "2026-10-04",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810419,
+      "client": "win-usc-004",
+      "night": "2026-10-04",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810394,
+      "client": "win-usc-007",
+      "night": "2026-10-04",
+      "status": "Failed",
+      "error_code": "SIM-1003",
+      "error_description": "VSS snapshot creation failed on client"
+    },
+    {
+      "job_id": 4810399,
+      "client": "win-use-002",
+      "night": "2026-10-04",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810463,
+      "client": "sql-use-005",
+      "night": "2026-10-05",
+      "status": "Failed",
+      "error_code": "SIM-1001",
+      "error_description": "Unable to connect to client; communication services not responding"
+    },
+    {
+      "job_id": 4810443,
+      "client": "win-usc-003",
+      "night": "2026-10-05",
+      "status": "Failed",
+      "error_code": "SIM-1001",
+      "error_description": "Unable to connect to client; communication services not responding"
+    },
+    {
+      "job_id": 4810485,
+      "client": "vmw-use-001",
+      "night": "2026-10-06",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2001",
+      "error_description": "One or more files skipped: access denied"
+    },
+    {
+      "job_id": 4810584,
+      "client": "win-usc-005",
+      "night": "2026-10-07",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2003",
+      "error_description": "Some items could not be read from source"
+    },
+    {
+      "job_id": 4810639,
+      "client": "hana-use-001",
+      "night": "2026-10-08",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2001",
+      "error_description": "One or more files skipped: access denied"
+    },
+    {
+      "job_id": 4810605,
+      "client": "ora-ukl-004",
+      "night": "2026-10-08",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810644,
+      "client": "vmw-use-008",
+      "night": "2026-10-08",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2001",
+      "error_description": "One or more files skipped: access denied"
+    },
+    {
+      "job_id": 4810688,
+      "client": "sql-use-002",
+      "night": "2026-10-09",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2003",
+      "error_description": "Some items could not be read from source"
+    },
+    {
+      "job_id": 4810689,
+      "client": "vmw-use-004",
+      "night": "2026-10-09",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2003",
+      "error_description": "Some items could not be read from source"
+    },
+    {
+      "job_id": 4810775,
+      "client": "vmw-ukl-005",
+      "night": "2026-10-10",
+      "status": "Failed",
+      "error_code": "SIM-1006",
+      "error_description": "VMware snapshot quiesce timeout"
+    },
+    {
+      "job_id": 4810732,
+      "client": "vmw-use-003",
+      "night": "2026-10-10",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2001",
+      "error_description": "One or more files skipped: access denied"
+    },
+    {
+      "job_id": 4810801,
+      "client": "sql-use-001",
+      "night": "2026-10-11",
+      "status": "Completed w/ errors",
+      "error_code": "SIM-2002",
+      "error_description": "One or more files skipped: file in use"
+    },
+    {
+      "job_id": 4810823,
+      "client": "vmw-use-008",
+      "night": "2026-10-11",
+      "status": "Failed",
+      "error_code": "SIM-1001",
+      "error_description": "Unable to connect to client; communication services not responding"
+    }
+  ],
+  "thresholds": {
+    "ma_outage_min_failed": 3,
+    "ma_outage_min_fail_ratio": 0.5,
+    "repeat_failure_min_nights": 3,
+    "min_baseline_jobs": 5,
+    "size_drop_ratio": 0.3,
+    "size_spike_ratio": 3.0,
+    "duration_spike_ratio": 2.5,
+    "duration_spike_min_extra_min": 10
+  }
+}
