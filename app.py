@@ -22,6 +22,8 @@ import pandas as pd
 import streamlit as st
 
 from detector import detect
+from kb import DEFAULT_KB_PATH, KBError, kb_digest, load_kb, usable_entries
+from retriever import Retriever, retrieve_for_result
 from schema import SchemaError, load_jobs
 from summarizer import DEFAULT_MODEL, code_only_summary, llm_summary, overall_status
 
@@ -56,6 +58,14 @@ def analyze(csv_bytes):
     return detect(load_jobs(io.BytesIO(csv_bytes)))
 
 
+@st.cache_resource(show_spinner=False)
+def load_retriever(path, mtime):
+    """Load the knowledge base once per file version. Returns (retriever, digest, counts)."""
+    all_entries = load_kb(path)
+    usable = usable_entries(all_entries)
+    return Retriever(usable), kb_digest(usable), (len(usable), len(all_entries))
+
+
 class _DontCache(Exception):
     """Raised inside the cached function so a failed call is never cached."""
     def __init__(self, summary):
@@ -64,18 +74,21 @@ class _DontCache(Exception):
 
 
 @st.cache_data(show_spinner=False)
-def _cached_llm_summary(result_json, model, _api_key):
-    """Cached on the findings and model, so the same report is only summarized once.
+def _cached_llm_summary(result_json, kb_json, model, _api_key):
+    """Cached on the findings, the retrieved KB entries and the model, so the same report is
+    only summarized once, and editing the KB refreshes it.
     (The leading underscore tells Streamlit not to use the key as part of the cache key.)"""
-    summary = llm_summary(json.loads(result_json), api_key=_api_key, model=model)
+    summary = llm_summary(json.loads(result_json), api_key=_api_key, model=model,
+                          kb_hits=json.loads(kb_json))
     if summary["_meta"]["source"] != "llm":
         raise _DontCache(summary)  # don't cache failures, so a retry can succeed
     return summary
 
 
-def get_llm_summary(result, model, api_key):
+def get_llm_summary(result, kb_hits, model, api_key):
     try:
-        return _cached_llm_summary(json.dumps(result, sort_keys=True), model, api_key)
+        return _cached_llm_summary(json.dumps(result, sort_keys=True),
+                                   json.dumps(kb_hits, sort_keys=True), model, api_key)
     except _DontCache as exc:
         return exc.summary
 
@@ -103,7 +116,10 @@ with st.sidebar:
         "2. **Detect** anomalies in code (pandas): outages, repeat failures, missed backups, "
         "silent size drops, size spikes, slow jobs\n"
         "3. **Explain** with an LLM that sees only the structured findings, never the raw rows\n"
-        "4. **Check** the summary: valid finding IDs, full coverage, numbers grounded in the data"
+        "4. **Look up** each finding's error codes and anomaly type in a knowledge base "
+        "(exact code match + keyword search)\n"
+        "5. **Check** the summary: valid finding IDs, full coverage, numbers grounded in the data, "
+        "next steps traced to a knowledge base entry"
     )
 
 if source == "Upload a CSV" and uploaded is None:
@@ -119,6 +135,23 @@ except SchemaError as exc:
     st.stop()
 
 report, findings = result["report"], result["findings"]
+
+# --- Knowledge base lookup (plain code, no LLM) ---------------------------------
+kb_hits, kb_note = {}, None
+if Path(DEFAULT_KB_PATH).exists():
+    try:
+        retriever, kb_version, (n_usable, n_total) = load_retriever(
+            str(DEFAULT_KB_PATH), Path(DEFAULT_KB_PATH).stat().st_mtime)
+        if n_usable:
+            kb_hits = retrieve_for_result(result, retriever)
+        kb_note = f"Knowledge base: {n_usable} of {n_total} entries in use (version {kb_version})."
+    except KBError as exc:
+        st.sidebar.error(f"Knowledge base problem: {exc}")
+else:
+    kb_note = "No knowledge_base.json found, so next steps are not available."
+with st.sidebar:
+    if kb_note:
+        st.caption(kb_note)
 status = overall_status(result)
 
 # --- Headline numbers -------------------------------------------------------
@@ -155,14 +188,14 @@ if clicked:
     else:
         st.session_state["llm_calls"] += 1
         with st.spinner("Writing the morning summary..."):
-            st.session_state["summary"] = get_llm_summary(result, DEFAULT_MODEL, api_key)
+            st.session_state["summary"] = get_llm_summary(result, kb_hits, DEFAULT_MODEL, api_key)
             st.session_state["summary_for"] = report_digest
 
 # Only show an AI summary if it was written for exactly this file
 if st.session_state["summary_for"] == report_digest and st.session_state["summary"]:
     summary = st.session_state["summary"]
 else:
-    summary = code_only_summary(result, "Click Generate AI summary for the LLM version")
+    summary = code_only_summary(result, "Click Generate AI summary for the LLM version", kb_hits)
 meta = summary["_meta"]
 
 with st.container(border=True):
@@ -174,6 +207,8 @@ with st.container(border=True):
             st.markdown(f"*Why it matters:* {p['why_it_matters']}")
         if p.get("next_steps"):
             st.markdown("\n".join(f"- {s}" for s in p["next_steps"]))
+        if p.get("kb_ids"):
+            st.caption("Source: " + ", ".join(p["kb_ids"]))
     if summary.get("also_noted"):
         st.markdown(f"**Also noted:** {summary['also_noted']}")
     if summary.get("one_offs_note"):
@@ -210,6 +245,14 @@ if findings:
         with st.expander(f"{f['id']} · {f['type'].replace('_', ' ')} · {', '.join(f['clients'][:2])}"
                          + (" ..." if len(f["clients"]) > 2 else "")):
             st.markdown(f"Severity: {SEVERITY_LABEL[f['severity']]}  \n{f['summary']}")
+            hits = kb_hits.get(f["id"], [])
+            if hits:
+                st.markdown("**Knowledge base matches**")
+                for h in hits:
+                    st.markdown(f"- `{h['entry']['id']}` {h['entry']['title']} "
+                                f"({h['why']}, score {h['score']})")
+            elif kb_hits:
+                st.markdown("**Knowledge base matches:** none")
             st.json({"evidence": f["evidence"], "job_ids": f["job_ids"],
                      "media_agent": f.get("media_agent"), "site": f.get("site")})
 else:

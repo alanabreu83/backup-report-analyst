@@ -20,11 +20,15 @@ Guardrails:
        possible hallucination.
     4. Fallback. With no API key, or if the API call fails, a code-only summary
        is produced, so the app always works.
+    5. Knowledge base. Next steps may only come from knowledge-base entries that code
+       retrieved for each finding. Every priority cites the entries it used (kb_ids);
+       with no matching entry the answer is "Not found in knowledge base."
 
 Usage:
     python detector.py backup_jobs.csv --out findings.json
     python summarizer.py findings.json
     python summarizer.py findings.json --no-llm        # code-only summary
+    python summarizer.py findings.json --kb knowledge_base.json   # with cited fixes
 """
 
 import argparse
@@ -33,6 +37,7 @@ import os
 import re
 
 DEFAULT_MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5-5")
+NO_KB_STEP = "Not found in knowledge base."
 MAX_TOKENS = 8000  # a ceiling, not a target: you only pay for tokens actually generated
 
 SYSTEM_PROMPT = """You are the lead engineer on a backup operations team, writing the 7 a.m. \
@@ -49,9 +54,12 @@ Rules:
 - Include every critical and high finding in a priority. Group findings that share a cause \
 or a place (same media agent, same site, same night) into one priority.
 - Order priorities by urgency: anything still failing or affecting many clients first.
-- Next steps are checks an engineer can do now. Phrase causes as possibilities to verify, \
-never as confirmed facts. Do not quote vendor-specific commands or error code meanings that \
-are not in the findings.
+- Next steps must come ONLY from the knowledge_base entries attached to the findings you are \
+covering. Rephrase them briefly; never add steps, causes, commands or error code meanings of \
+your own. Phrase causes as possibilities to verify, never as confirmed facts.
+- List the knowledge base entry IDs you used in kb_ids (for example KB-P01). Use only IDs that \
+appear in the input. If none of the entries attached to a priority's findings applies, set \
+kb_ids to an empty list and next_steps to exactly ["Not found in knowledge base."].
 - Medium findings may be summarized briefly in also_noted instead of getting their own priority.
 - One-off issues are informational: mention how many there were and that they only need \
 attention if they repeat.
@@ -82,10 +90,17 @@ SUMMARY_SCHEMA = {
                     "why_it_matters": {"type": "string", "description": "1 sentence: the risk if ignored."},
                     "next_steps": {
                         "type": "array", "items": {"type": "string"},
-                        "description": "1-3 concrete checks to do now.",
+                        "description": "1-2 checks taken from the knowledge base entries, or exactly "
+                                       "['Not found in knowledge base.'] if none apply.",
+                    },
+                    "kb_ids": {
+                        "type": "array", "items": {"type": "string"},
+                        "description": "IDs of the knowledge base entries the next steps came from. "
+                                       "Empty if none.",
                     },
                 },
-                "required": ["title", "finding_ids", "what_happened", "why_it_matters", "next_steps"],
+                "required": ["title", "finding_ids", "what_happened", "why_it_matters",
+                             "next_steps", "kb_ids"],
                 "additionalProperties": False,
             },
         },
@@ -103,6 +118,9 @@ SUMMARY_SCHEMA = {
 }
 
 
+PRIORITY_REQUIRED = SUMMARY_SCHEMA["properties"]["priorities"]["items"]["required"]
+
+
 # ---------------------------------------------------------------------------
 # Decisions made in code, not by the LLM
 # ---------------------------------------------------------------------------
@@ -117,8 +135,16 @@ def overall_status(result):
     return "green"
 
 
-def build_llm_input(result):
-    """The compact, structured view of the night that the LLM is allowed to see."""
+def _kb_view(entry):
+    """The part of a KB entry the LLM sees."""
+    return {k: entry[k] for k in ("id", "title", "error_codes", "symptoms", "likely_causes",
+                                  "checks", "fixes") if entry.get(k)}
+
+
+def build_llm_input(result, kb_hits=None):
+    """The compact, structured view of the night that the LLM is allowed to see.
+    kb_hits is {finding_id: [hit, ...]} from retriever.retrieve_for_result, or None."""
+    kb_hits = kb_hits or {}
     one_offs = result["one_off_issues"]
     by_status = {}
     for o in one_offs:
@@ -136,7 +162,10 @@ def build_llm_input(result):
             "nights": f["nights"],
             "evidence": f["evidence"],
             "summary": f["summary"],
+            "kb_ids": [h["entry"]["id"] for h in kb_hits.get(f["id"], [])],
         } for f in result["findings"]],
+        "knowledge_base": {h["entry"]["id"]: _kb_view(h["entry"])
+                           for hits in kb_hits.values() for h in hits},
         "one_off_issues": {"count": len(one_offs), "by_status": by_status},
     }
 
@@ -160,7 +189,7 @@ def _summary_text(summary):
     return "\n".join(parts)
 
 
-def validate_summary(summary, result):
+def validate_summary(summary, result, kb_hits=None):
     """Return a list of human-readable warnings. Empty list = passed every check."""
     warnings = []
     known = {f["id"] for f in result["findings"]}
@@ -175,9 +204,25 @@ def validate_summary(summary, result):
     if uncovered:
         warnings.append(f"Critical/high findings left out of the priorities: {', '.join(uncovered)}")
 
+    # Knowledge base: cited entries must exist and must have been retrieved for the
+    # findings the priority covers; steps with no citation must be the "not found" line.
+    kb_hits = kb_hits or {}
+    for p in summary.get("priorities", []):
+        offered = {h["entry"]["id"] for fid in p.get("finding_ids", []) for h in kb_hits.get(fid, [])}
+        bad = sorted(set(p.get("kb_ids", [])) - offered)
+        if bad:
+            warnings.append(f"'{p.get('title', '?')}' cites KB entries not retrieved for its findings: "
+                            f"{', '.join(bad)}")
+        steps = p.get("next_steps", [])
+        if not p.get("kb_ids") and steps and steps != [NO_KB_STEP]:
+            warnings.append(f"'{p.get('title', '?')}' has next steps with no knowledge base source")
+        if offered and not p.get("kb_ids") and steps == [NO_KB_STEP]:
+            warnings.append(f"'{p.get('title', '?')}' says nothing was found, but entries were retrieved: "
+                            f"{', '.join(sorted(offered))}")
+
     # Number grounding: every number in the summary must exist in the input.
     # Rounded forms count too (238.1 GB may be written as 238 GB).
-    source_numbers = _numbers_in(json.dumps(build_llm_input(result)))
+    source_numbers = _numbers_in(json.dumps(build_llm_input(result, kb_hits)))
     allowed = set(source_numbers)
     for n in source_numbers:
         value = float(n)
@@ -211,7 +256,7 @@ def clean_text(value):
 # Summaries
 # ---------------------------------------------------------------------------
 
-def code_only_summary(result, reason=""):
+def code_only_summary(result, reason="", kb_hits=None):
     """Deterministic summary used when no LLM is available. No API, no cost."""
     findings = result["findings"]
     r = result["report"]
@@ -224,6 +269,16 @@ def code_only_summary(result, reason=""):
     else:
         headline = f"No anomalies detected across {r['total_jobs']} jobs."
     medium = [f for f in findings if f["severity"] == "medium"]
+    kb_hits = kb_hits or {}
+
+    def kb_steps(f):
+        """Top retrieved entry's first checks, copied verbatim. No LLM involved."""
+        hits = kb_hits.get(f["id"], [])
+        if not hits:
+            return ([NO_KB_STEP] if kb_hits else []), []
+        e = hits[0]["entry"]
+        return (e["checks"] + e["fixes"])[:2], [e["id"]]
+
     return {
         "headline": headline,
         "priorities": [{
@@ -232,7 +287,8 @@ def code_only_summary(result, reason=""):
             "finding_ids": [f["id"]],
             "what_happened": f["summary"],
             "why_it_matters": "",
-            "next_steps": [],
+            "next_steps": kb_steps(f)[0],
+            "kb_ids": kb_steps(f)[1],
         } for f in top],
         "also_noted": " ".join(f["summary"] for f in medium),
         "one_offs_note": (f"{len(result['one_off_issues'])} one-off failures or warnings; "
@@ -246,12 +302,12 @@ def _make_client(api_key):
     return anthropic.Anthropic(api_key=api_key)
 
 
-def llm_summary(result, api_key=None, model=DEFAULT_MODEL, client=None):
+def llm_summary(result, api_key=None, model=DEFAULT_MODEL, client=None, kb_hits=None):
     """Ask the LLM for the summary. Falls back to the code-only summary on any failure."""
     if client is None:
         key = api_key or os.environ.get("ANTHROPIC_API_KEY")
         if not key:
-            return code_only_summary(result, "No API key configured")
+            return code_only_summary(result, "No API key configured", kb_hits)
         client = _make_client(key)
 
     try:
@@ -263,23 +319,25 @@ def llm_summary(result, api_key=None, model=DEFAULT_MODEL, client=None):
             messages=[{
                 "role": "user",
                 "content": ("Here are last night's findings as JSON. Write the morning summary.\n\n"
-                            + json.dumps(build_llm_input(result), indent=1)),
+                            + json.dumps(build_llm_input(result, kb_hits), indent=1)),
             }],
         )
     except Exception as exc:  # network, auth, rate limit, bad model name...
-        return code_only_summary(result, f"LLM call failed: {type(exc).__name__}: {exc}")
+        return code_only_summary(result, f"LLM call failed: {type(exc).__name__}: {exc}", kb_hits)
 
     stop = getattr(response, "stop_reason", None)
     if stop in ("refusal", "max_tokens"):  # output may be cut off or off-schema
         used = getattr(getattr(response, "usage", None), "output_tokens", "?")
-        return code_only_summary(result, f"LLM stopped early ({stop} after {used} output tokens)")
+        return code_only_summary(result, f"LLM stopped early ({stop} after {used} output tokens)", kb_hits)
     text = next((b.text for b in response.content if getattr(b, "type", None) == "text"), None)
     try:
         summary = json.loads(text)
     except (TypeError, ValueError):
-        return code_only_summary(result, "LLM did not return valid JSON")
-    if not isinstance(summary, dict) or not set(SUMMARY_SCHEMA["required"]) <= set(summary):
-        return code_only_summary(result, "LLM response was missing required fields")
+        return code_only_summary(result, "LLM did not return valid JSON", kb_hits)
+    if (not isinstance(summary, dict) or not set(SUMMARY_SCHEMA["required"]) <= set(summary)
+            or any(not isinstance(p, dict) or not set(PRIORITY_REQUIRED) <= set(p)
+                   for p in summary.get("priorities", []))):
+        return code_only_summary(result, "LLM response was missing required fields", kb_hits)
 
     summary = clean_text(dict(summary))
     summary["_meta"] = {
@@ -287,7 +345,7 @@ def llm_summary(result, api_key=None, model=DEFAULT_MODEL, client=None):
         "model": model,
         "input_tokens": getattr(response.usage, "input_tokens", None),
         "output_tokens": getattr(response.usage, "output_tokens", None),
-        "warnings": validate_summary(summary, result),
+        "warnings": validate_summary(summary, result, kb_hits),
     }
     return summary
 
@@ -302,6 +360,8 @@ def to_text(summary, result):
             lines.append(f"   Why it matters: {p['why_it_matters']}")
         for step in p.get("next_steps", []):
             lines.append(f"   - {step}")
+        if p.get("kb_ids"):
+            lines.append(f"   Source: {', '.join(p['kb_ids'])}")
         lines.append("")
     if summary.get("also_noted"):
         lines += [f"Also noted: {summary['also_noted']}", ""]
@@ -315,6 +375,7 @@ def main():
     p.add_argument("findings")
     p.add_argument("--no-llm", action="store_true", help="Use the code-only summary")
     p.add_argument("--model", default=DEFAULT_MODEL)
+    p.add_argument("--kb", help="Knowledge base JSON; next steps then come from it, with citations")
     args = p.parse_args()
 
     try:
@@ -326,7 +387,16 @@ def main():
     with open(args.findings) as f:
         result = json.load(f)
 
-    summary = code_only_summary(result, "--no-llm") if args.no_llm else llm_summary(result, model=args.model)
+    kb_hits = None
+    if args.kb:
+        from kb import KBError, load_kb, usable_entries
+        from retriever import Retriever, retrieve_for_result
+        try:
+            kb_hits = retrieve_for_result(result, Retriever(usable_entries(load_kb(args.kb))))
+        except KBError as exc:
+            raise SystemExit(f"error: {exc}")
+    summary = (code_only_summary(result, "--no-llm", kb_hits) if args.no_llm
+               else llm_summary(result, model=args.model, kb_hits=kb_hits))
     print(to_text(summary, result))
     meta = summary["_meta"]
     print(f"\n---\nSource: {meta['source']}"

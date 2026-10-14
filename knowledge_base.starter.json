@@ -1,0 +1,410 @@
+{
+  "entries": [
+    {
+      "id": "KB-P01",
+      "kind": "procedure",
+      "title": "Media agent outage: every job on one media agent failed",
+      "symptoms": "All jobs that write through one media agent fail in the same window, across unrelated clients.",
+      "source": "STARTER DRAFT (Claude): rewrite from your own experience or a public vendor doc, then change this source",
+      "error_codes": [],
+      "finding_types": [
+        "media_agent_outage"
+      ],
+      "likely_causes": [
+        "Media agent host is down, rebooting or hung",
+        "Backup services stopped on the media agent",
+        "Network path or firewall change between clients and the media agent",
+        "Disk library mount or storage unreachable"
+      ],
+      "checks": [
+        "Check whether the media agent host is up and its backup services are running",
+        "Check whether the disk library mount path is online and has free space",
+        "Confirm whether other media agents at the same site are healthy to separate a host problem from a site problem"
+      ],
+      "fixes": [
+        "Restore the host or services, then rerun the failed jobs",
+        "If the host cannot be recovered quickly, redirect affected clients to another media agent and escalate"
+      ],
+      "tags": [
+        "media agent",
+        "outage",
+        "unreachable",
+        "offline",
+        "all jobs failed"
+      ]
+    },
+    {
+      "id": "KB-P02",
+      "kind": "procedure",
+      "title": "Repeat failure: same client failed several nights in a row",
+      "symptoms": "One client fails on consecutive nights with the same error, so a retry is not fixing it.",
+      "source": "STARTER DRAFT (Claude): rewrite from your own experience or a public vendor doc, then change this source",
+      "error_codes": [],
+      "finding_types": [
+        "repeat_failure"
+      ],
+      "likely_causes": [
+        "A persistent client-side problem (agent, snapshot, credentials) that a retry does not clear",
+        "A configuration change made before the first failure",
+        "A chain or dependency broken until a fresh full backup runs"
+      ],
+      "checks": [
+        "Compare the error on each failed night to confirm it is the same one",
+        "Look for a change on the client or its network around the first failed night",
+        "Check the error code entry for the specific cause and fix"
+      ],
+      "fixes": [
+        "Fix the root cause, then run a manual backup and confirm it completes",
+        "If the data has gone unprotected for several days, tell the application owner"
+      ],
+      "tags": [
+        "repeat",
+        "consecutive",
+        "failing",
+        "recurring",
+        "same error"
+      ]
+    },
+    {
+      "id": "KB-P03",
+      "kind": "procedure",
+      "title": "Missed backup: client with no job at all on a night",
+      "symptoms": "A client that normally runs every night has no job record for the night. Nothing failed because nothing ran.",
+      "source": "STARTER DRAFT (Claude): rewrite from your own experience or a public vendor doc, then change this source",
+      "error_codes": [],
+      "finding_types": [
+        "missed_backup"
+      ],
+      "likely_causes": [
+        "Schedule disabled, changed or removed",
+        "Client or agent was offline when the job window opened",
+        "Job never queued because the scheduler or a resource was unavailable",
+        "Client was decommissioned or renamed"
+      ],
+      "checks": [
+        "Check the client's schedule and confirm it is enabled",
+        "Check whether the client was up and reachable during the backup window",
+        "Check whether the client was recently renamed, moved or retired"
+      ],
+      "fixes": [
+        "Re-enable or correct the schedule, then run a catch-up backup",
+        "If the client is gone, remove it from the schedule so it stops alerting"
+      ],
+      "tags": [
+        "missed",
+        "no job",
+        "not run",
+        "schedule",
+        "skipped night"
+      ]
+    },
+    {
+      "id": "KB-P04",
+      "kind": "procedure",
+      "title": "Silent size drop: job succeeded but backed up far less than normal",
+      "symptoms": "A job reports Completed but the data size is a small fraction of the client's normal. Success status hides a possible gap.",
+      "source": "STARTER DRAFT (Claude): rewrite from your own experience or a public vendor doc, then change this source",
+      "error_codes": [],
+      "finding_types": [
+        "size_drop"
+      ],
+      "likely_causes": [
+        "Part of the data is no longer being included (content or filter change)",
+        "A volume, database or mount was missing or empty at backup time",
+        "Source data genuinely shrank, for example a purge or archive"
+      ],
+      "checks": [
+        "Compare what the job protected with what the client's content definition says it should",
+        "Ask whether the application owner purged or moved data that night",
+        "Check that all expected volumes or databases were present on the client"
+      ],
+      "fixes": [
+        "If content was dropped by mistake, restore the content definition and run a full backup",
+        "If the drop is expected, note it so the baseline can adjust"
+      ],
+      "tags": [
+        "size drop",
+        "smaller",
+        "incomplete",
+        "silent",
+        "completed but small"
+      ]
+    },
+    {
+      "id": "KB-P05",
+      "kind": "procedure",
+      "title": "Size spike: job backed up far more than normal",
+      "symptoms": "An incremental backup is several times larger than the client's normal, which can mean unusual change or newly included data.",
+      "source": "STARTER DRAFT (Claude): rewrite from your own experience or a public vendor doc, then change this source",
+      "error_codes": [],
+      "finding_types": [
+        "size_spike"
+      ],
+      "likely_causes": [
+        "Large data load, migration or restore on the client",
+        "Content definition changed and new data was added",
+        "Application produced large temporary files or logs",
+        "Possible mass change on the client, which should be ruled out"
+      ],
+      "checks": [
+        "Ask the application owner whether a load, migration or batch job ran",
+        "Check whether the content definition changed recently",
+        "Check for unusual file activity on the client if no planned event explains it"
+      ],
+      "fixes": [
+        "Expect a longer window and more storage use; confirm capacity is available",
+        "Escalate to security if the change looks unplanned"
+      ],
+      "tags": [
+        "size spike",
+        "larger",
+        "growth",
+        "unusual change",
+        "incremental large"
+      ]
+    },
+    {
+      "id": "KB-P06",
+      "kind": "procedure",
+      "title": "Duration spike: job took far longer than normal",
+      "symptoms": "A job finished successfully but ran many times longer than its normal duration without a matching increase in data.",
+      "source": "STARTER DRAFT (Claude): rewrite from your own experience or a public vendor doc, then change this source",
+      "error_codes": [],
+      "finding_types": [
+        "duration_spike"
+      ],
+      "likely_causes": [
+        "Network or storage contention during the window",
+        "Slow client disk or heavy client load",
+        "Throttled or busy media agent",
+        "Many small files or retries slowing the job"
+      ],
+      "checks": [
+        "Check whether other jobs on the same media agent or site were slow in the same window",
+        "Check client load and disk performance during the backup window",
+        "Check network utilization between the client and the media agent"
+      ],
+      "fixes": [
+        "If it repeats, move the schedule or rebalance the media agent load",
+        "If it was a single occurrence, record it and watch the next night"
+      ],
+      "tags": [
+        "slow",
+        "long running",
+        "duration",
+        "performance",
+        "contention"
+      ]
+    },
+    {
+      "id": "KB-007",
+      "kind": "error_code",
+      "title": "Error Code: 101: Unable to connect to client; communication services not responding",
+      "error_codes": [
+        "Error Code: 101"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: Unable to connect to client; communication services not responding",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-008",
+      "kind": "error_code",
+      "title": "Error Code: 102: Media agent unreachable or offline",
+      "error_codes": [
+        "Error Code: 102"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: Media agent unreachable or offline",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-009",
+      "kind": "error_code",
+      "title": "Error Code: 103: VSS snapshot creation failed on client",
+      "error_codes": [
+        "Error Code: 103"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: VSS snapshot creation failed on client",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-010",
+      "kind": "error_code",
+      "title": "Error Code: 104: Database log backup chain broken; full backup required",
+      "error_codes": [
+        "Error Code: 104"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: Database log backup chain broken; full backup required",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-011",
+      "kind": "error_code",
+      "title": "Error Code: 105: Insufficient space in disk library mount path",
+      "error_codes": [
+        "Error Code: 105"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: Insufficient space in disk library mount path",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-012",
+      "kind": "error_code",
+      "title": "Error Code: 106: VMware snapshot quiesce timeout",
+      "error_codes": [
+        "Error Code: 106"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: VMware snapshot quiesce timeout",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-013",
+      "kind": "error_code",
+      "title": "Error Code: 107: Authentication to database instance failed",
+      "error_codes": [
+        "Error Code: 107"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: Authentication to database instance failed",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-014",
+      "kind": "error_code",
+      "title": "Error Code: 108: One or more files skipped: access denied",
+      "error_codes": [
+        "Error Code: 108"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: One or more files skipped: access denied",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-015",
+      "kind": "error_code",
+      "title": "Error Code: 109: One or more files skipped: file in use",
+      "error_codes": [
+        "Error Code: 109"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: One or more files skipped: file in use",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    },
+    {
+      "id": "KB-016",
+      "kind": "error_code",
+      "title": "Error Code: 110: Some items could not be read from source",
+      "error_codes": [
+        "Error Code: 110"
+      ],
+      "finding_types": [],
+      "symptoms": "TODO: how this shows up in the job report. Report text: Some items could not be read from source",
+      "likely_causes": [
+        "TODO: one cause per line, most common first"
+      ],
+      "checks": [
+        "TODO: what an engineer can check right now"
+      ],
+      "fixes": [
+        "TODO: the usual fix, or when to escalate"
+      ],
+      "source": "TODO: your own experience, or a public doc URL",
+      "tags": []
+    }
+  ]
+}
