@@ -154,6 +154,20 @@ with st.sidebar:
         st.caption(kb_note)
 status = overall_status(result)
 
+kb_lookup = {h["entry"]["id"]: h["entry"] for hits in kb_hits.values() for h in hits}
+
+
+def kb_source_label(entry_id, lookup):
+    """'KB-009 (title): source', with the source as a link when it is a web address."""
+    e = lookup.get(entry_id)
+    if not e:
+        return entry_id
+    src = e.get("source", "").strip()
+    if src.lower().startswith(("http://", "https://")) and " " not in src:
+        src = f"[{src.split('//', 1)[1].split('/', 1)[0]}]({src})"
+    return f"{entry_id} ({e['title']}): {src}" if src else f"{entry_id} ({e['title']})"
+
+
 # --- Headline numbers -------------------------------------------------------
 st.markdown(f"#### Night of {report['last_night']} · Overall {STATUS_LABEL[status]}")
 st.caption(f"Report covers {report['first_night']} to {report['last_night']} "
@@ -208,7 +222,7 @@ with st.container(border=True):
         if p.get("next_steps"):
             st.markdown("\n".join(f"- {s}" for s in p["next_steps"]))
         if p.get("kb_ids"):
-            st.caption("Source: " + ", ".join(p["kb_ids"]))
+            st.caption("Sources: " + " · ".join(kb_source_label(i, kb_lookup) for i in p["kb_ids"]))
     if summary.get("also_noted"):
         st.markdown(f"**Also noted:** {summary['also_noted']}")
     if summary.get("one_offs_note"):
