@@ -30,7 +30,9 @@ K1, B = 1.5, 0.75
 _STOP = {"a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "in", "is", "it",
          "of", "on", "or", "that", "the", "to", "was", "with", "this", "not", "no", "has", "have",
          "what", "when", "how", "why", "who", "which", "do", "does", "did", "if", "there", "can",
-         "will", "you", "your", "i", "we", "my", "me", "should"}
+         "will", "you", "your", "i", "we", "my", "me", "should",
+         # appear in almost every error-code entry title, so they say nothing about which one
+         "error", "code", "mean", "means"}
 _WORD = re.compile(r"[a-z0-9]+")
 _CODE_PREFIX = re.compile(r"^\s*(error\s*code|errorcode|code|err)\b[\s:#=-]*", re.I)
 
@@ -69,6 +71,19 @@ class Retriever:
             for c in e["error_codes"]:
                 self.by_code.setdefault(normalize_code(c), []).append(e)
 
+    def find_codes(self, text):
+        """Known error codes mentioned in free text ('what does error 103 mean?').
+        Only codes that exist in the KB can match, so '10 jobs' is not mistaken for a code."""
+        found = []
+        for m in re.finditer(r"[A-Za-z]{0,9}[\s:#=-]{0,3}\d{2,6}", str(text)):
+            raw = m.group()
+            bare = re.sub(r"^[A-Za-z]+[\s:#=-]*", "", raw)  # drop any leading word, keep the number
+            for cand in (raw, bare):
+                n = normalize_code(cand)
+                if n in self.by_code and n not in found:
+                    found.append(n)
+        return found
+
     def _bm25(self, i, query_tokens):
         """Return (score, number of distinct query words found in the entry)."""
         doc, length = self.docs[i], self.lengths[i]
@@ -82,12 +97,15 @@ class Retriever:
             score += self.idf[t] * tf * (K1 + 1) / norm
         return score, matched
 
-    def search(self, query="", codes=(), finding_type=None, k=3, require_signal=False):
+    def search(self, query="", codes=(), finding_type=None, k=3, require_signal=False, extract_codes=False):
         """Return up to k hits: [{'entry', 'score', 'why'}], best first. May be empty.
         require_signal=True means keywords may only re-rank entries that already matched by
-        code or finding type (used for findings, whose text is machine-written and noisy)."""
+        code or finding type (used for findings, whose text is machine-written and noisy).
+        extract_codes=True also looks for known error codes inside the query text."""
         qtokens = tokenize(query)
         wanted = {normalize_code(c) for c in codes if str(c).strip()}
+        if extract_codes:  # also pick up codes typed inside the question itself
+            wanted |= set(self.find_codes(query))
         scored = []
         for i, e in enumerate(self.entries):
             score, reasons = 0.0, []

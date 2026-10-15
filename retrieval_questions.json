@@ -1,0 +1,25 @@
+{
+  "note": "Draft test questions written by Claude. Rewrite at least half in your own words (and set author to alan), add real questions you would ask, and fix any code that does not match your report. expect.codes = error codes whose KB entry is a correct answer; expect.types = finding types whose procedure entry is a correct answer; an empty expect means nothing in the KB should be returned.",
+  "questions": [
+    {"id": "Q01", "author": "claude", "q": "What does Error Code: 103 mean and what should I check?", "expect": {"codes": ["Error Code: 103"]}},
+    {"id": "Q02", "author": "claude", "q": "Why does sql-use-005 keep failing with error 104", "expect": {"codes": ["Error Code: 104"]}},
+    {"id": "Q03", "author": "claude", "q": "What is ERR-107?", "expect": {"codes": ["Error Code: 107"]}},
+    {"id": "Q04", "author": "alan", "q": "Backup server cannot talk to the client, why is the communication service is not answering?", "expect": {"codes": ["Error Code: 101"]}},
+    {"id": "Q05", "author": "alan", "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?", "expect": {"codes": ["Error Code: 105"]}},
+    {"id": "Q06", "author": "alan", "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?", "expect": {"codes": ["Error Code: 106"]}},
+    {"id": "Q07", "author": "alan", "q": "Login to the SQL instance is being rejected during backup, is a service account needed?", "expect": {"codes": ["Error Code: 107"]}},
+    {"id": "Q08", "author": "alan", "q": "Some files were skipped because permission was denied, do file permissions need to be changed?", "expect": {"codes": ["Error Code: 108"]}},
+    {"id": "Q09", "author": "alan", "q": "Files were skipped since another process had them open, is this VSS related?", "expect": {"codes": ["Error Code: 109"]}},
+    {"id": "Q10", "author": "alan", "q": "What can I do when a Database log chain is broken?", "expect": {"codes": ["Error Code: 104"]}},
+    {"id": "Q11", "author": "alan", "q": "Windows system state backup would not complete on the client, how can I resolve this?", "expect": {"codes": ["Error Code: 103"]}},
+    {"id": "Q12", "author": "alan", "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?", "expect": {"codes": ["Error Code: 102"], "types": ["media_agent_outage"]}},
+    {"id": "Q13", "author": "alan", "q": "Why did a job say Completed but only backed up a tenth of its normal data?", "expect": {"types": ["size_drop"]}},
+    {"id": "Q14", "author": "alan", "q": "Why did no backup job happen for a client last night?", "expect": {"types": ["missed_backup"]}},
+    {"id": "Q15", "author": "alan", "q": "The incremental backup was ten times larger than usual, could it be ransomware?", "expect": {"types": ["size_spike"]}},
+    {"id": "Q16", "author": "alan", "q": "Why would a backup take ten times longer than normal but the size is the same?", "expect": {"types": ["duration_spike"]}},
+    {"id": "Q17", "author": "alan", "q": "Why has the same client failed four nights in a row?", "expect": {"types": ["repeat_failure"]}},
+    {"id": "Q18", "author": "claude", "q": "How do I reset my email password?", "expect": {}},
+    {"id": "Q19", "author": "alan", "q": "How do I resolve an issue where tape library robot arm is jammed?", "expect": {}},
+    {"id": "Q20", "author": "claude", "q": "What does Error Code: 999 mean?", "expect": {}}
+  ]
+}

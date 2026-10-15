@@ -1,0 +1,5205 @@
+{
+  "head": "Retrieval evaluation: 20 questions (5 by claude, 15 by alan), 16 KB entries, embedder BAAI/bge-small-en-v1.5",
+  "results": {
+    "exact": {
+      "n_answerable": 17,
+      "hit@1": 0.17647058823529413,
+      "hit@3": 0.17647058823529413,
+      "mrr": 0.17647058823529413,
+      "n_unanswerable": 3,
+      "false_answer_rate": 0.0,
+      "per_question": [
+        {
+          "id": "Q01",
+          "q": "What does Error Code: 103 mean and what should I check?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-009"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q02",
+          "q": "Why does sql-use-005 keep failing with error 104",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q03",
+          "q": "What is ERR-107?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [
+            "KB-013"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q04",
+          "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+          "expected": [
+            "KB-007"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q05",
+          "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+          "expected": [
+            "KB-011"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q06",
+          "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+          "expected": [
+            "KB-012"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q07",
+          "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q08",
+          "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+          "expected": [
+            "KB-014"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q09",
+          "q": "Files were skipped since another process had them open, is this VSS related?",
+          "expected": [
+            "KB-015"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q10",
+          "q": "What can I do when a Database log chain is broken?",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q11",
+          "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q12",
+          "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+          "expected": [
+            "KB-008",
+            "KB-P01"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q13",
+          "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+          "expected": [
+            "KB-P04"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q14",
+          "q": "Why did no backup job happen for a client last night?",
+          "expected": [
+            "KB-P03"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q15",
+          "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+          "expected": [
+            "KB-P05"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q16",
+          "q": "Why would a backup take ten times longer than normal but the size is the same?",
+          "expected": [
+            "KB-P06"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q17",
+          "q": "Why has the same client failed four nights in a row?",
+          "expected": [
+            "KB-P02"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q18",
+          "q": "How do I reset my email password?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q19",
+          "q": "How do I resolve an issue where tape library robot arm is jammed?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q20",
+          "q": "What does Error Code: 999 mean?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        }
+      ]
+    },
+    "keyword (BM25)": {
+      "n_answerable": 17,
+      "hit@1": 0.7647058823529411,
+      "hit@3": 0.8235294117647058,
+      "mrr": 0.7941176470588235,
+      "n_unanswerable": 3,
+      "false_answer_rate": 0.0,
+      "per_question": [
+        {
+          "id": "Q01",
+          "q": "What does Error Code: 103 mean and what should I check?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q02",
+          "q": "Why does sql-use-005 keep failing with error 104",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q03",
+          "q": "What is ERR-107?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q04",
+          "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+          "expected": [
+            "KB-007"
+          ],
+          "got": [
+            "KB-007",
+            "KB-P01",
+            "KB-009"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q05",
+          "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+          "expected": [
+            "KB-011"
+          ],
+          "got": [
+            "KB-011",
+            "KB-P01",
+            "KB-P04"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q06",
+          "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+          "expected": [
+            "KB-012"
+          ],
+          "got": [
+            "KB-012"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q07",
+          "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [
+            "KB-013",
+            "KB-P06",
+            "KB-P03"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q08",
+          "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+          "expected": [
+            "KB-014"
+          ],
+          "got": [
+            "KB-014",
+            "KB-P03",
+            "KB-015"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q09",
+          "q": "Files were skipped since another process had them open, is this VSS related?",
+          "expected": [
+            "KB-015"
+          ],
+          "got": [
+            "KB-015",
+            "KB-014",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q10",
+          "q": "What can I do when a Database log chain is broken?",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010",
+            "KB-P02"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q11",
+          "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-009",
+            "KB-P03",
+            "KB-P02"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q12",
+          "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+          "expected": [
+            "KB-008",
+            "KB-P01"
+          ],
+          "got": [
+            "KB-008",
+            "KB-P01",
+            "KB-P03"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q13",
+          "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+          "expected": [
+            "KB-P04"
+          ],
+          "got": [
+            "KB-P04",
+            "KB-P05",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q14",
+          "q": "Why did no backup job happen for a client last night?",
+          "expected": [
+            "KB-P03"
+          ],
+          "got": [
+            "KB-P03",
+            "KB-P02",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q15",
+          "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+          "expected": [
+            "KB-P05"
+          ],
+          "got": [
+            "KB-P05",
+            "KB-016",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q16",
+          "q": "Why would a backup take ten times longer than normal but the size is the same?",
+          "expected": [
+            "KB-P06"
+          ],
+          "got": [
+            "KB-P04",
+            "KB-P06",
+            "KB-P05"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q17",
+          "q": "Why has the same client failed four nights in a row?",
+          "expected": [
+            "KB-P02"
+          ],
+          "got": [
+            "KB-P02",
+            "KB-P03",
+            "KB-P01"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q18",
+          "q": "How do I reset my email password?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q19",
+          "q": "How do I resolve an issue where tape library robot arm is jammed?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q20",
+          "q": "What does Error Code: 999 mean?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        }
+      ]
+    },
+    "hybrid (today's app)": {
+      "n_answerable": 17,
+      "hit@1": 0.9411764705882353,
+      "hit@3": 1.0,
+      "mrr": 0.9705882352941176,
+      "n_unanswerable": 3,
+      "false_answer_rate": 0.0,
+      "per_question": [
+        {
+          "id": "Q01",
+          "q": "What does Error Code: 103 mean and what should I check?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-009"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q02",
+          "q": "Why does sql-use-005 keep failing with error 104",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q03",
+          "q": "What is ERR-107?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [
+            "KB-013"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q04",
+          "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+          "expected": [
+            "KB-007"
+          ],
+          "got": [
+            "KB-007",
+            "KB-P01",
+            "KB-009"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q05",
+          "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+          "expected": [
+            "KB-011"
+          ],
+          "got": [
+            "KB-011",
+            "KB-P01",
+            "KB-P04"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q06",
+          "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+          "expected": [
+            "KB-012"
+          ],
+          "got": [
+            "KB-012"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q07",
+          "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [
+            "KB-013",
+            "KB-P06",
+            "KB-P03"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q08",
+          "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+          "expected": [
+            "KB-014"
+          ],
+          "got": [
+            "KB-014",
+            "KB-P03",
+            "KB-015"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q09",
+          "q": "Files were skipped since another process had them open, is this VSS related?",
+          "expected": [
+            "KB-015"
+          ],
+          "got": [
+            "KB-015",
+            "KB-014",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q10",
+          "q": "What can I do when a Database log chain is broken?",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010",
+            "KB-P02"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q11",
+          "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-009",
+            "KB-P03",
+            "KB-P02"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q12",
+          "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+          "expected": [
+            "KB-008",
+            "KB-P01"
+          ],
+          "got": [
+            "KB-008",
+            "KB-P01",
+            "KB-P03"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q13",
+          "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+          "expected": [
+            "KB-P04"
+          ],
+          "got": [
+            "KB-P04",
+            "KB-P05",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q14",
+          "q": "Why did no backup job happen for a client last night?",
+          "expected": [
+            "KB-P03"
+          ],
+          "got": [
+            "KB-P03",
+            "KB-P02",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q15",
+          "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+          "expected": [
+            "KB-P05"
+          ],
+          "got": [
+            "KB-P05",
+            "KB-016",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q16",
+          "q": "Why would a backup take ten times longer than normal but the size is the same?",
+          "expected": [
+            "KB-P06"
+          ],
+          "got": [
+            "KB-P04",
+            "KB-P06",
+            "KB-P05"
+          ],
+          "rank": 2
+        },
+        {
+          "id": "Q17",
+          "q": "Why has the same client failed four nights in a row?",
+          "expected": [
+            "KB-P02"
+          ],
+          "got": [
+            "KB-P02",
+            "KB-P03",
+            "KB-P01"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q18",
+          "q": "How do I reset my email password?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q19",
+          "q": "How do I resolve an issue where tape library robot arm is jammed?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q20",
+          "q": "What does Error Code: 999 mean?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        }
+      ]
+    },
+    "embeddings only (>= 0.7)": {
+      "n_answerable": 17,
+      "hit@1": 0.7647058823529411,
+      "hit@3": 0.8235294117647058,
+      "mrr": 0.7843137254901961,
+      "n_unanswerable": 3,
+      "false_answer_rate": 0.0,
+      "per_question": [
+        {
+          "id": "Q01",
+          "q": "What does Error Code: 103 mean and what should I check?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-010",
+            "KB-016",
+            "KB-009"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q02",
+          "q": "Why does sql-use-005 keep failing with error 104",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q03",
+          "q": "What is ERR-107?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q04",
+          "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+          "expected": [
+            "KB-007"
+          ],
+          "got": [
+            "KB-007"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q05",
+          "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+          "expected": [
+            "KB-011"
+          ],
+          "got": [
+            "KB-011"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q06",
+          "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+          "expected": [
+            "KB-012"
+          ],
+          "got": [
+            "KB-012"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q07",
+          "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [
+            "KB-013",
+            "KB-010"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q08",
+          "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+          "expected": [
+            "KB-014"
+          ],
+          "got": [
+            "KB-014"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q09",
+          "q": "Files were skipped since another process had them open, is this VSS related?",
+          "expected": [
+            "KB-015"
+          ],
+          "got": [
+            "KB-015"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q10",
+          "q": "What can I do when a Database log chain is broken?",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q11",
+          "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-007",
+            "KB-P03"
+          ],
+          "rank": null
+        },
+        {
+          "id": "Q12",
+          "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+          "expected": [
+            "KB-008",
+            "KB-P01"
+          ],
+          "got": [
+            "KB-008",
+            "KB-P01"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q13",
+          "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+          "expected": [
+            "KB-P04"
+          ],
+          "got": [
+            "KB-P04",
+            "KB-P05"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q14",
+          "q": "Why did no backup job happen for a client last night?",
+          "expected": [
+            "KB-P03"
+          ],
+          "got": [
+            "KB-P03"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q15",
+          "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+          "expected": [
+            "KB-P05"
+          ],
+          "got": [
+            "KB-P05"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q16",
+          "q": "Why would a backup take ten times longer than normal but the size is the same?",
+          "expected": [
+            "KB-P06"
+          ],
+          "got": [
+            "KB-P05"
+          ],
+          "rank": null
+        },
+        {
+          "id": "Q17",
+          "q": "Why has the same client failed four nights in a row?",
+          "expected": [
+            "KB-P02"
+          ],
+          "got": [
+            "KB-P02"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q18",
+          "q": "How do I reset my email password?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q19",
+          "q": "How do I resolve an issue where tape library robot arm is jammed?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q20",
+          "q": "What does Error Code: 999 mean?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        }
+      ]
+    },
+    "hybrid + embeddings (>= 0.7)": {
+      "n_answerable": 17,
+      "hit@1": 0.8823529411764706,
+      "hit@3": 1.0,
+      "mrr": 0.9215686274509803,
+      "n_unanswerable": 3,
+      "false_answer_rate": 0.0,
+      "per_question": [
+        {
+          "id": "Q01",
+          "q": "What does Error Code: 103 mean and what should I check?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-009",
+            "KB-010",
+            "KB-016"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q02",
+          "q": "Why does sql-use-005 keep failing with error 104",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q03",
+          "q": "What is ERR-107?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [
+            "KB-013"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q04",
+          "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+          "expected": [
+            "KB-007"
+          ],
+          "got": [
+            "KB-007",
+            "KB-P01",
+            "KB-009"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q05",
+          "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+          "expected": [
+            "KB-011"
+          ],
+          "got": [
+            "KB-011",
+            "KB-P01",
+            "KB-P04"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q06",
+          "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+          "expected": [
+            "KB-012"
+          ],
+          "got": [
+            "KB-012"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q07",
+          "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+          "expected": [
+            "KB-013"
+          ],
+          "got": [
+            "KB-013",
+            "KB-010",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q08",
+          "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+          "expected": [
+            "KB-014"
+          ],
+          "got": [
+            "KB-014",
+            "KB-P03",
+            "KB-015"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q09",
+          "q": "Files were skipped since another process had them open, is this VSS related?",
+          "expected": [
+            "KB-015"
+          ],
+          "got": [
+            "KB-015",
+            "KB-014",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q10",
+          "q": "What can I do when a Database log chain is broken?",
+          "expected": [
+            "KB-010"
+          ],
+          "got": [
+            "KB-010",
+            "KB-P02"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q11",
+          "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+          "expected": [
+            "KB-009"
+          ],
+          "got": [
+            "KB-P03",
+            "KB-007",
+            "KB-009"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q12",
+          "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+          "expected": [
+            "KB-008",
+            "KB-P01"
+          ],
+          "got": [
+            "KB-008",
+            "KB-P01",
+            "KB-P03"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q13",
+          "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+          "expected": [
+            "KB-P04"
+          ],
+          "got": [
+            "KB-P04",
+            "KB-P05",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q14",
+          "q": "Why did no backup job happen for a client last night?",
+          "expected": [
+            "KB-P03"
+          ],
+          "got": [
+            "KB-P03",
+            "KB-P02",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q15",
+          "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+          "expected": [
+            "KB-P05"
+          ],
+          "got": [
+            "KB-P05",
+            "KB-016",
+            "KB-P06"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q16",
+          "q": "Why would a backup take ten times longer than normal but the size is the same?",
+          "expected": [
+            "KB-P06"
+          ],
+          "got": [
+            "KB-P05",
+            "KB-P04",
+            "KB-P06"
+          ],
+          "rank": 3
+        },
+        {
+          "id": "Q17",
+          "q": "Why has the same client failed four nights in a row?",
+          "expected": [
+            "KB-P02"
+          ],
+          "got": [
+            "KB-P02",
+            "KB-P03",
+            "KB-P01"
+          ],
+          "rank": 1
+        },
+        {
+          "id": "Q18",
+          "q": "How do I reset my email password?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q19",
+          "q": "How do I resolve an issue where tape library robot arm is jammed?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        },
+        {
+          "id": "Q20",
+          "q": "What does Error Code: 999 mean?",
+          "expected": [],
+          "got": [],
+          "rank": null
+        }
+      ]
+    }
+  },
+  "sweep": [
+    {
+      "min_sim": 0.4,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8235294117647058,
+        "hit@3": 0.9411764705882353,
+        "mrr": 0.8627450980392156,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-016",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-007"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011",
+              "KB-P02",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8823529411764706,
+        "hit@3": 1.0,
+        "mrr": 0.9215686274509803,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-010",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-P03",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-007",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-007"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011",
+              "KB-P02",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      }
+    },
+    {
+      "min_sim": 0.45,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8235294117647058,
+        "hit@3": 0.9411764705882353,
+        "mrr": 0.8627450980392156,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-016",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-007"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011",
+              "KB-P02",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8823529411764706,
+        "hit@3": 1.0,
+        "mrr": 0.9215686274509803,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-010",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-P03",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-007",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-007"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011",
+              "KB-P02",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      }
+    },
+    {
+      "min_sim": 0.5,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8235294117647058,
+        "hit@3": 0.9411764705882353,
+        "mrr": 0.8627450980392156,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-016",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-007"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011",
+              "KB-P02",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8823529411764706,
+        "hit@3": 1.0,
+        "mrr": 0.9215686274509803,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-010",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-P03",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-007",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-007"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011",
+              "KB-P02",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      }
+    },
+    {
+      "min_sim": 0.55,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8235294117647058,
+        "hit@3": 0.9411764705882353,
+        "mrr": 0.8627450980392156,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-016",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8823529411764706,
+        "hit@3": 1.0,
+        "mrr": 0.9215686274509803,
+        "n_unanswerable": 3,
+        "false_answer_rate": 1.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-010",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-P03",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-007",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [
+              "KB-013"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [
+              "KB-011"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      }
+    },
+    {
+      "min_sim": 0.6,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8235294117647058,
+        "hit@3": 0.9411764705882353,
+        "mrr": 0.8627450980392156,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.3333333333333333,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-016",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8823529411764706,
+        "hit@3": 1.0,
+        "mrr": 0.9215686274509803,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.3333333333333333,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-010",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-P03",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-015",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-007",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008",
+              "KB-016"
+            ],
+            "rank": null
+          }
+        ]
+      }
+    },
+    {
+      "min_sim": 0.65,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8235294117647058,
+        "hit@3": 0.9411764705882353,
+        "mrr": 0.8627450980392156,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.3333333333333333,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03",
+              "KB-010"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008"
+            ],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8823529411764706,
+        "hit@3": 1.0,
+        "mrr": 0.9215686274509803,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.3333333333333333,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-010",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-016",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P04",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-007",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-P03",
+              "KB-015"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-007",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-016",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [
+              "KB-007",
+              "KB-008"
+            ],
+            "rank": null
+          }
+        ]
+      }
+    },
+    {
+      "min_sim": 0.7,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.7647058823529411,
+        "hit@3": 0.8235294117647058,
+        "mrr": 0.7843137254901961,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-010",
+              "KB-016",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P03"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05"
+            ],
+            "rank": null
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.8823529411764706,
+        "hit@3": 1.0,
+        "mrr": 0.9215686274509803,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-010",
+              "KB-016"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P01",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P01",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-010",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-P03",
+              "KB-015"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-007",
+              "KB-009"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-016",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-P04",
+              "KB-P06"
+            ],
+            "rank": 3
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          }
+        ]
+      }
+    },
+    {
+      "min_sim": 0.75,
+      "embed": {
+        "n_answerable": 17,
+        "hit@1": 0.5882352941176471,
+        "hit@3": 0.5882352941176471,
+        "mrr": 0.5882352941176471,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          }
+        ]
+      },
+      "hybrid+embed": {
+        "n_answerable": 17,
+        "hit@1": 0.9411764705882353,
+        "hit@3": 1.0,
+        "mrr": 0.9705882352941176,
+        "n_unanswerable": 3,
+        "false_answer_rate": 0.0,
+        "per_question": [
+          {
+            "id": "Q01",
+            "q": "What does Error Code: 103 mean and what should I check?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q02",
+            "q": "Why does sql-use-005 keep failing with error 104",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q03",
+            "q": "What is ERR-107?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q04",
+            "q": "Backup server cannot talk to the client, why is the communication service is not answering?",
+            "expected": [
+              "KB-007"
+            ],
+            "got": [
+              "KB-007",
+              "KB-P01",
+              "KB-009"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q05",
+            "q": "The disk library mount is almost full so jobs cannot write, how can I reclaim space?",
+            "expected": [
+              "KB-011"
+            ],
+            "got": [
+              "KB-011",
+              "KB-P01",
+              "KB-P04"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q06",
+            "q": "VMware snapshot hangs while quiescing the guest OS, what can I do?",
+            "expected": [
+              "KB-012"
+            ],
+            "got": [
+              "KB-012"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q07",
+            "q": "Login to the SQL instance is being rejected during backup, is a service account needed?",
+            "expected": [
+              "KB-013"
+            ],
+            "got": [
+              "KB-013",
+              "KB-P06",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q08",
+            "q": "Some files were skipped because permission was denied, do file permissions need to be changed?",
+            "expected": [
+              "KB-014"
+            ],
+            "got": [
+              "KB-014",
+              "KB-P03",
+              "KB-015"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q09",
+            "q": "Files were skipped since another process had them open, is this VSS related?",
+            "expected": [
+              "KB-015"
+            ],
+            "got": [
+              "KB-015",
+              "KB-014",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q10",
+            "q": "What can I do when a Database log chain is broken?",
+            "expected": [
+              "KB-010"
+            ],
+            "got": [
+              "KB-010",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q11",
+            "q": "Windows system state backup would not complete on the client, how can I resolve this?",
+            "expected": [
+              "KB-009"
+            ],
+            "got": [
+              "KB-009",
+              "KB-P03",
+              "KB-P02"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q12",
+            "q": "How can I resolve an issue where a Media agent is offline and nothing can write to it?",
+            "expected": [
+              "KB-008",
+              "KB-P01"
+            ],
+            "got": [
+              "KB-008",
+              "KB-P01",
+              "KB-P03"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q13",
+            "q": "Why did a job say Completed but only backed up a tenth of its normal data?",
+            "expected": [
+              "KB-P04"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P05",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q14",
+            "q": "Why did no backup job happen for a client last night?",
+            "expected": [
+              "KB-P03"
+            ],
+            "got": [
+              "KB-P03",
+              "KB-P02",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q15",
+            "q": "The incremental backup was ten times larger than usual, could it be ransomware?",
+            "expected": [
+              "KB-P05"
+            ],
+            "got": [
+              "KB-P05",
+              "KB-016",
+              "KB-P06"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q16",
+            "q": "Why would a backup take ten times longer than normal but the size is the same?",
+            "expected": [
+              "KB-P06"
+            ],
+            "got": [
+              "KB-P04",
+              "KB-P06",
+              "KB-P05"
+            ],
+            "rank": 2
+          },
+          {
+            "id": "Q17",
+            "q": "Why has the same client failed four nights in a row?",
+            "expected": [
+              "KB-P02"
+            ],
+            "got": [
+              "KB-P02",
+              "KB-P03",
+              "KB-P01"
+            ],
+            "rank": 1
+          },
+          {
+            "id": "Q18",
+            "q": "How do I reset my email password?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q19",
+            "q": "How do I resolve an issue where tape library robot arm is jammed?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          },
+          {
+            "id": "Q20",
+            "q": "What does Error Code: 999 mean?",
+            "expected": [],
+            "got": [],
+            "rank": null
+          }
+        ]
+      }
+    }
+  ]
+}

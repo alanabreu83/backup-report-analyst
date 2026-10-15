@@ -225,8 +225,9 @@ def main():
             sys.exit(1 if errors else 0)
         elif args.cmd == "search":
             from retriever import Retriever
-            hits = Retriever(load_kb(args.kb)).search(args.query, codes=args.code,
-                                                      finding_type=args.finding_type, k=args.k)
+            hits = Retriever(usable_entries(load_kb(args.kb))).search(
+                args.query, codes=args.code, finding_type=args.finding_type, k=args.k,
+                extract_codes=True)
             if not hits:
                 print("No matching entries.")
             for h in hits:
